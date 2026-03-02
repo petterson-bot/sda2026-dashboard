@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDA 2026 - Relatório Meta Ads | Conta 04</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --card: #12121a;
+  --card-hover: #1a1a28;
+  --border: #2a2a3a;
+  --text: #ffffff;
+  --text-secondary: #b0b0c8;
+  --green: #00e676;
+  --green-soft: #00e67620;
+  --red: #ff5252;
+  --red-soft: #ff525220;
+  --yellow: #ffd740;
+  --yellow-soft: #ffd74020;
+  --blue: #448aff;
+  --blue-soft: #448aff20;
+  --purple: #e040fb;
+  --purple-soft: #e040fb20;
+  --orange: #ff9100;
+  --orange-soft: #ff910020;
+  --cyan: #18ffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 24px;
+}
+
+.container { max-width: 1440px; margin: 0 auto; }
+
+/* HEADER */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 32px; margin-bottom: 32px;
+  background: linear-gradient(135deg, #12121a 0%, #1a1a2e 100%);
+  border: 1px solid var(--border); border-radius: 16px;
+}
+.header h1 {
+  font-size: 28px; font-weight: 700;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.header .meta { color: var(--text-secondary); font-size: 14px; }
+.header .badge {
+  display: inline-block; padding: 6px 16px; border-radius: 20px;
+  background: var(--green-soft); color: var(--green); font-weight: 600; font-size: 13px;
+}
+
+/* KPI ROW */
+.kpi-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 32px; }
+.kpi {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; text-align: center; transition: all .2s;
+}
+.kpi:hover { border-color: var(--green); transform: translateY(-2px); }
+.kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); margin-bottom: 8px; }
+.kpi .value { font-size: 24px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+.kpi .sub { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+/* SECTION */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px;
+}
+.section-title .icon { font-size: 22px; }
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead { background: #1a1a28; }
+th {
+  padding: 14px 12px; text-align: left; font-weight: 600; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary);
+  border-bottom: 2px solid var(--border); white-space: nowrap;
+}
+td {
+  padding: 12px; border-bottom: 1px solid #1e1e30; color: var(--text);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+}
+td.name-col { font-family: 'DM Sans', sans-serif; font-weight: 500; max-width: 280px; }
+tr:hover { background: var(--card-hover); }
+
+.tag {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+}
+.tag-green { background: var(--green-soft); color: var(--green); }
+.tag-blue { background: var(--blue-soft); color: var(--blue); }
+.tag-purple { background: var(--purple-soft); color: var(--purple); }
+.tag-yellow { background: var(--yellow-soft); color: var(--yellow); }
+.tag-red { background: var(--red-soft); color: var(--red); }
+.tag-orange { background: var(--orange-soft); color: var(--orange); }
+.tag-cyan { background: rgba(24,255,255,.15); color: var(--cyan); }
+
+.good { color: var(--green); }
+.warn { color: var(--yellow); }
+.bad { color: var(--red); }
+
+/* INSIGHT CARDS */
+.insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.insight-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; transition: all .2s;
+}
+.insight-card:hover { border-color: var(--green); }
+.insight-card h4 { font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.insight-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+.insight-card .highlight { color: var(--green); font-weight: 600; }
+
+/* SCROLL WRAPPER */
+.table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+
+/* WHATSAPP SECTION */
+.whatsapp-highlight {
+  background: linear-gradient(135deg, #1a2f1a 0%, #12121a 100%);
+  border: 1px solid #2d4a2d; border-radius: 12px; padding: 24px; margin-bottom: 24px;
+}
+.whatsapp-highlight h3 { color: var(--green); margin-bottom: 16px; font-size: 18px; }
+
+/* RANKING BAR */
+.bar-container { position: relative; height: 24px; background: #1e1e30; border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 6px; transition: width .5s ease; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 600; }
+.bar-green { background: linear-gradient(90deg, var(--green), #00c853); }
+.bar-blue { background: linear-gradient(90deg, var(--blue), #2979ff); }
+.bar-purple { background: linear-gradient(90deg, var(--purple), #aa00ff); }
+.bar-yellow { background: linear-gradient(90deg, var(--yellow), #ffab00); }
+.bar-red { background: linear-gradient(90deg, var(--red), #d50000); }
+
+@media (max-width: 1200px) { .kpi-row { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .insights-grid { grid-template-columns: 1fr; }
+  body { padding: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <h1>📊 SDA 2026 — Relatório Meta Ads</h1>
+    <p class="meta">Conta 04 · act_377480853270622 · Últimos 30 dias (31/Jan - 01/Mar 2026)</p>
+  </div>
+  <div style="text-align:right">
+    <span class="badge">🟢 11 campanhas ativas</span>
+    <p class="meta" style="margin-top:8px">Gerado em 02/Mar/2026</p>
+  </div>
+</div>
+
+<!-- KPIs GERAIS -->
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="label">Investimento Total</div>
+    <div class="value" style="color:var(--text)">R$ 43.826</div>
+    <div class="sub">11 campanhas ativas</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Leads Totais</div>
+    <div class="value" style="color:var(--green)">1.129</div>
+    <div class="sub">CPL Médio: R$ 38,82</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Compras (Purchase)</div>
+    <div class="value" style="color:var(--cyan)">44</div>
+    <div class="sub">CPA Médio: R$ 996,06</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Conversas WhatsApp</div>
+    <div class="value" style="color:var(--purple)">92</div>
+    <div class="sub">R$ 34,82/conversa</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Alcance Total</div>
+    <div class="value" style="color:var(--blue)">756K</div>
+    <div class="sub">2.49M impressões</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Cliques Totais</div>
+    <div class="value" style="color:var(--yellow)">35.911</div>
+    <div class="sub">CPC Médio: R$ 1,22</div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 1: PERFORMANCE POR CAMPANHA -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎯</span> Performance por Campanha</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th>Objetivo</th>
+          <th style="text-align:right">Investimento</th>
+          <th style="text-align:right">Impressões</th>
+          <th style="text-align:right">Alcance</th>
+          <th style="text-align:right">Cliques</th>
+          <th style="text-align:right">CTR</th>
+          <th style="text-align:right">CPC</th>
+          <th style="text-align:right">CPM</th>
+          <th style="text-align:right">Leads</th>
+          <th style="text-align:right">CPL</th>
+          <th style="text-align:right">Compras</th>
+          <th style="text-align:right">CPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-col">Formulário_Quente_ABO</td>
+          <td><span class="tag tag-green">Lead Form</span></td>
+          <td style="text-align:right">R$ 4.490</td>
+          <td style="text-align:right">160.143</td>
+          <td style="text-align:right">53.463</td>
+          <td style="text-align:right">2.047</td>
+          <td style="text-align:right">1,28%</td>
+          <td style="text-align:right">R$ 2,19</td>
+          <td style="text-align:right">R$ 28,04</td>
+          <td style="text-align:right" class="good">346</td>
+          <td style="text-align:right" class="good">R$ 12,98</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">R$ 1.496</td>
+        </tr>
+        <tr>
+          <td class="name-col">Frio_ABO_Teste03</td>
+          <td><span class="tag tag-blue">Lead Frio</span></td>
+          <td style="text-align:right">R$ 7.863</td>
+          <td style="text-align:right">286.440</td>
+          <td style="text-align:right">170.973</td>
+          <td style="text-align:right">9.065</td>
+          <td style="text-align:right" class="good">3,16%</td>
+          <td style="text-align:right" class="good">R$ 0,87</td>
+          <td style="text-align:right">R$ 27,45</td>
+          <td style="text-align:right" class="good">330</td>
+          <td style="text-align:right" class="good">R$ 23,83</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">R$ 7.863</td>
+        </tr>
+        <tr>
+          <td class="name-col">Quente_ABO_Teste02</td>
+          <td><span class="tag tag-purple">Lead Quente</span></td>
+          <td style="text-align:right">R$ 16.402</td>
+          <td style="text-align:right">681.994</td>
+          <td style="text-align:right">143.899</td>
+          <td style="text-align:right">12.932</td>
+          <td style="text-align:right">1,90%</td>
+          <td style="text-align:right">R$ 1,27</td>
+          <td style="text-align:right">R$ 24,05</td>
+          <td style="text-align:right">248</td>
+          <td style="text-align:right" class="warn">R$ 66,14</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">R$ 5.467</td>
+        </tr>
+        <tr>
+          <td class="name-col">Formulário_TesteCriativo</td>
+          <td><span class="tag tag-green">Lead Form</span></td>
+          <td style="text-align:right">R$ 686</td>
+          <td style="text-align:right">23.413</td>
+          <td style="text-align:right">12.803</td>
+          <td style="text-align:right">498</td>
+          <td style="text-align:right">2,13%</td>
+          <td style="text-align:right">R$ 1,38</td>
+          <td style="text-align:right">R$ 29,30</td>
+          <td style="text-align:right" class="good">89</td>
+          <td style="text-align:right" class="good">R$ 7,71</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+        </tr>
+        <tr>
+          <td class="name-col">Lista_Espera_Frio_ABO</td>
+          <td><span class="tag tag-blue">Lead Frio</span></td>
+          <td style="text-align:right">R$ 1.056</td>
+          <td style="text-align:right">39.081</td>
+          <td style="text-align:right">30.005</td>
+          <td style="text-align:right">1.234</td>
+          <td style="text-align:right" class="good">3,16%</td>
+          <td style="text-align:right" class="good">R$ 0,86</td>
+          <td style="text-align:right">R$ 27,03</td>
+          <td style="text-align:right">60</td>
+          <td style="text-align:right" class="good">R$ 17,61</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+        </tr>
+        <tr>
+          <td class="name-col">Lista_Espera_Quente_ABO</td>
+          <td><span class="tag tag-purple">Lead Quente</span></td>
+          <td style="text-align:right">R$ 939</td>
+          <td style="text-align:right">47.406</td>
+          <td style="text-align:right">25.002</td>
+          <td style="text-align:right">1.182</td>
+          <td style="text-align:right">2,49%</td>
+          <td style="text-align:right" class="good">R$ 0,79</td>
+          <td style="text-align:right">R$ 19,82</td>
+          <td style="text-align:right">31</td>
+          <td style="text-align:right">R$ 30,30</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+        </tr>
+        <tr style="background:#0d1a0d">
+          <td class="name-col">Advantage_CBO_Teste04</td>
+          <td><span class="tag tag-cyan">Venda</span></td>
+          <td style="text-align:right">R$ 4.272</td>
+          <td style="text-align:right">79.454</td>
+          <td style="text-align:right">28.559</td>
+          <td style="text-align:right">1.613</td>
+          <td style="text-align:right">2,03%</td>
+          <td style="text-align:right">R$ 2,65</td>
+          <td style="text-align:right">R$ 53,78</td>
+          <td style="text-align:right">17</td>
+          <td style="text-align:right">R$ 251,35</td>
+          <td style="text-align:right" class="good">24</td>
+          <td style="text-align:right" class="good">R$ 178,04</td>
+        </tr>
+        <tr style="background:#0d1a0d">
+          <td class="name-col">Venda_Checkout_Quente_ABO</td>
+          <td><span class="tag tag-cyan">Venda</span></td>
+          <td style="text-align:right">R$ 2.258</td>
+          <td style="text-align:right">51.131</td>
+          <td style="text-align:right">17.579</td>
+          <td style="text-align:right">588</td>
+          <td style="text-align:right">1,15%</td>
+          <td style="text-align:right">R$ 3,84</td>
+          <td style="text-align:right">R$ 44,16</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right" class="good">12</td>
+          <td style="text-align:right" class="good">R$ 188,17</td>
+        </tr>
+        <tr>
+          <td class="name-col">WhatsApp_Quente_ABO</td>
+          <td><span class="tag tag-orange">WhatsApp</span></td>
+          <td style="text-align:right">R$ 3.203</td>
+          <td style="text-align:right">53.868</td>
+          <td style="text-align:right">12.646</td>
+          <td style="text-align:right">667</td>
+          <td style="text-align:right">1,24%</td>
+          <td style="text-align:right">R$ 4,80</td>
+          <td style="text-align:right">R$ 59,47</td>
+          <td style="text-align:right">4</td>
+          <td style="text-align:right" class="bad">R$ 800</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">R$ 3.203</td>
+        </tr>
+        <tr>
+          <td class="name-col">Alcance_Lote_Lembrete</td>
+          <td><span class="tag tag-yellow">Alcance</span></td>
+          <td style="text-align:right">R$ 1.461</td>
+          <td style="text-align:right">813.372</td>
+          <td style="text-align:right">211.237</td>
+          <td style="text-align:right">1.615</td>
+          <td style="text-align:right">0,20%</td>
+          <td style="text-align:right">R$ 0,90</td>
+          <td style="text-align:right" class="good">R$ 1,80</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+        </tr>
+        <tr>
+          <td class="name-col">VisitaPerfil_Lote_Lembrete</td>
+          <td><span class="tag tag-yellow">Tráfego</span></td>
+          <td style="text-align:right">R$ 1.192</td>
+          <td style="text-align:right">257.790</td>
+          <td style="text-align:right">63.139</td>
+          <td style="text-align:right">4.268</td>
+          <td style="text-align:right">1,66%</td>
+          <td style="text-align:right" class="good">R$ 0,28</td>
+          <td style="text-align:right" class="good">R$ 4,62</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 2: CAMPANHA WHATSAPP - ANÁLISE DETALHADA -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">💬</span> Campanha WhatsApp — Análise de Conversas</div>
+  <div class="whatsapp-highlight">
+    <h3>📱 SDA2026-Meta_Lead-Comercial-Lote_Quente_ABO_WhatsApp</h3>
+    <div class="kpi-row" style="margin-bottom:0">
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Conversas Iniciadas</div>
+        <div class="value" style="color:var(--green)">92</div>
+        <div class="sub">messaging_conversation_started_7d</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Primeiro Reply</div>
+        <div class="value" style="color:var(--cyan)">78</div>
+        <div class="sub">messaging_first_reply</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Mensagens Enviadas (2+)</div>
+        <div class="value" style="color:var(--blue)">50</div>
+        <div class="sub">messaging_depth_2_send</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Mensagens Enviadas (3+)</div>
+        <div class="value" style="color:var(--purple)">31</div>
+        <div class="sub">messaging_depth_3_send</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Custo por Conversa</div>
+        <div class="value" style="color:var(--yellow)">R$ 34,82</div>
+        <div class="sub">R$ 3.203 / 92 conversas</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Taxa de Resposta</div>
+        <div class="value" style="color:var(--green)">84,8%</div>
+        <div class="sub">78 replies / 92 conversas</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Conjunto de Anúncios</th>
+          <th>Público</th>
+          <th style="text-align:right">Invest.</th>
+          <th style="text-align:right">Conversas</th>
+          <th style="text-align:right">1º Reply</th>
+          <th style="text-align:right">Depth 2+</th>
+          <th style="text-align:right">Depth 3+</th>
+          <th style="text-align:right">Custo/Conv.</th>
+          <th style="text-align:right">Compras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-col">02.RemarketingSDA_Auto_1102</td>
+          <td><span class="tag tag-purple">Pixel Segredos 180D</span></td>
+          <td style="text-align:right">R$ 2.028</td>
+          <td style="text-align:right" class="good">81</td>
+          <td style="text-align:right">69</td>
+          <td style="text-align:right">44</td>
+          <td style="text-align:right">26</td>
+          <td style="text-align:right">R$ 25,04</td>
+          <td style="text-align:right">1</td>
+        </tr>
+        <tr>
+          <td class="name-col">01.Checkout_Auto</td>
+          <td><span class="tag tag-red">Checkout 2026 180D</span></td>
+          <td style="text-align:right">R$ 1.174</td>
+          <td style="text-align:right">11</td>
+          <td style="text-align:right">9</td>
+          <td style="text-align:right">6</td>
+          <td style="text-align:right">5</td>
+          <td style="text-align:right" class="bad">R$ 106,79</td>
+          <td style="text-align:right">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:16px; padding:16px; background:var(--card); border:1px solid var(--border); border-radius:12px;">
+    <p style="color:var(--text); font-size:14px; font-weight:600; margin-bottom:8px;">⚠️ Análise WhatsApp:</p>
+    <p style="color:var(--text-secondary); font-size:13px; line-height:1.8;">
+      O conjunto <strong style="color:var(--green)">RemarketingSDA_Auto</strong> é o principal gerador de conversas (81 de 92 = 88%) com custo por conversa de R$ 25,04. Taxa de engajamento profundo (Depth 3+) de 32% indica conversas qualificadas. O conjunto <strong style="color:var(--red)">Checkout_Auto</strong> tem custo 4x maior por conversa (R$ 106,79) e poucas conversões, indicando que quem já fez checkout não precisa de WhatsApp — prefere comprar direto.
+    </p>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 3: PÚBLICOS POR CAMPANHA -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">👥</span> Públicos por Campanha (Targeting)</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th>Conjunto</th>
+          <th>Tipo Público</th>
+          <th>Audiências / Interesses</th>
+          <th>Idade</th>
+          <th>Gênero</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- QUENTE ABO TESTE02 -->
+        <tr>
+          <td class="name-col" rowspan="4" style="vertical-align:top; border-bottom:2px solid var(--border)">Quente_Teste02<br><span class="tag tag-purple">Lead</span></td>
+          <td class="name-col">03.PixelListaIG090</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Sniper 1/2, ICP SDA, IG Env/Direct/Visit/Salvou 090D, Lista SDA, Pixel Segredos</td>
+          <td>25-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">01.LeadSDA2026_Auto</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Lista de Espera SDA, Lead SDA 090D, Leads SDA Geral 2026</td>
+          <td>20-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">00.RemarketingLP</td>
+          <td><span class="tag tag-orange">RMKT</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">LP SDA Comercial 2026 180D</td>
+          <td>20-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--border)">
+          <td class="name-col">06.PixelListaIG090</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Sniper 1/2, ICP SDA, IG Env/Direct/Visit/Salvou 090D (duplicado do 03)</td>
+          <td>25-65</td>
+          <td>Todos</td>
+        </tr>
+        <!-- FRIO ABO TESTE03 -->
+        <tr>
+          <td class="name-col" rowspan="8" style="vertical-align:top; border-bottom:2px solid var(--border)">Frio_Teste03<br><span class="tag tag-blue">Lead Frio</span></td>
+          <td class="name-col">01.Empresário</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">CEO, Owner, Empresário | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">04.Advogado</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">OAB, Escritório Advocacia | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">06.Dentista</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Dentistry, Ortodontia | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">07.LL Compradores</td>
+          <td><span class="tag tag-cyan">Lookalike</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">LAL 1% Compradores SDA 2022-2026 (6 LLs)</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">08.Médico</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Doctor, Dermatologista | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">09.Agro</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Agricultura, Agronegócio | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">10.Contábil</td>
+          <td><span class="tag tag-blue">Interesse</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Contabilidade, Accounting | iPhone</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--border)">
+          <td class="name-col">12.LAL VIP/Platinum</td>
+          <td><span class="tag tag-cyan">Lookalike</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">LAL 1% SDA VIP + Platinum</td>
+          <td>30-65</td>
+          <td>Todos</td>
+        </tr>
+        <!-- FORMULÁRIO -->
+        <tr>
+          <td class="name-col" rowspan="4" style="vertical-align:top; border-bottom:2px solid var(--border)">Formulário_ABO<br><span class="tag tag-green">Lead Form</span></td>
+          <td class="name-col">01.RMKT3x_Auto</td>
+          <td><span class="tag tag-orange">RMKT</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">View Domínio SDA 180D (3x visitou)</td>
+          <td>22-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">02.VisitouPerfil007D</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">IG Visitou Perfil 007D</td>
+          <td>22-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">03.VisitouPerfil030D</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">IG Envolvimento 030D</td>
+          <td>22-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--border)">
+          <td class="name-col">04.ICPSniper090D</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Sniper 1/2, ICP SDA, IG Env/Direct/Visit/Salvou 090D</td>
+          <td>25-65</td>
+          <td>Todos</td>
+        </tr>
+        <!-- VENDA CBO -->
+        <tr>
+          <td class="name-col" style="border-bottom:2px solid var(--border)">Advantage_CBO04<br><span class="tag tag-cyan">Venda</span></td>
+          <td class="name-col">01.LALCompradores</td>
+          <td><span class="tag tag-cyan">Lookalike</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">LAL 1% Compradores SDA 2022-2026 (6 LLs) | Advantage+</td>
+          <td>25-65</td>
+          <td>Todos</td>
+        </tr>
+        <!-- VENDA QUENTE ABO -->
+        <tr>
+          <td class="name-col" rowspan="3" style="vertical-align:top; border-bottom:2px solid var(--border)">Venda_Quente_ABO<br><span class="tag tag-cyan">Venda</span></td>
+          <td class="name-col">01.RMKTSDA_Auto</td>
+          <td><span class="tag tag-orange">RMKT</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">VV 50% Vendas 365D + Pixel Segredos 180D</td>
+          <td>18-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">01.VideoView_Conta03</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">VV 50% Conteúdo Conta 03 365D</td>
+          <td>18-65</td>
+          <td>Fem.</td>
+        </tr>
+        <tr style="border-bottom:2px solid var(--border)">
+          <td class="name-col">02.Env014D_IG</td>
+          <td><span class="tag tag-purple">Quente</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">IG Envolvimento/Direct/Visit/Salvou 014D</td>
+          <td>18-65</td>
+          <td>Fem.</td>
+        </tr>
+        <!-- WHATSAPP -->
+        <tr>
+          <td class="name-col" rowspan="2" style="vertical-align:top">WhatsApp_ABO<br><span class="tag tag-orange">WhatsApp</span></td>
+          <td class="name-col">01.Checkout_Auto</td>
+          <td><span class="tag tag-red">RMKT</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Checkout SDA 2026 180D</td>
+          <td>20-65</td>
+          <td>Todos</td>
+        </tr>
+        <tr>
+          <td class="name-col">02.RemarketingSDA</td>
+          <td><span class="tag tag-orange">RMKT</span></td>
+          <td style="font-family:'DM Sans'; font-size:12px; color:var(--text-secondary)">Pixel Segredos Page View 180D</td>
+          <td>20-65</td>
+          <td>Todos</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 4: ANÁLISE DE CONJUNTOS DE ANÚNCIOS -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">📦</span> Top 20 Conjuntos de Anúncios (por Investimento)</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Conjunto</th>
+          <th>Campanha</th>
+          <th style="text-align:right">Invest.</th>
+          <th style="text-align:right">Imp.</th>
+          <th style="text-align:right">Alcance</th>
+          <th style="text-align:right">Cliques</th>
+          <th style="text-align:right">CTR</th>
+          <th style="text-align:right">CPC</th>
+          <th style="text-align:right">Leads</th>
+          <th style="text-align:right">CPL</th>
+          <th style="text-align:right">Compras</th>
+          <th style="text-align:right">Conversas</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-col">03.PixelListaIG090</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Quente_Teste02</td>
+          <td style="text-align:right">R$ 4.347</td>
+          <td style="text-align:right">206K</td>
+          <td style="text-align:right">77.810</td>
+          <td style="text-align:right">3.449</td>
+          <td style="text-align:right">1,67%</td>
+          <td style="text-align:right">R$ 1,26</td>
+          <td style="text-align:right">74</td>
+          <td style="text-align:right" class="warn">R$ 58,74</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">13</td>
+          <td><span class="tag tag-yellow">Caro</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">01.LALCompradores_Advantage</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Advantage CBO04</td>
+          <td style="text-align:right">R$ 4.272</td>
+          <td style="text-align:right">79K</td>
+          <td style="text-align:right">28.559</td>
+          <td style="text-align:right">1.613</td>
+          <td style="text-align:right">2,03%</td>
+          <td style="text-align:right">R$ 2,65</td>
+          <td style="text-align:right">17</td>
+          <td style="text-align:right">R$ 251</td>
+          <td style="text-align:right" class="good">24</td>
+          <td style="text-align:right">23</td>
+          <td><span class="tag tag-green">⭐ Top Vendas</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">06.PixelListaIG090</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Quente_Teste02</td>
+          <td style="text-align:right">R$ 3.728</td>
+          <td style="text-align:right">153K</td>
+          <td style="text-align:right">74.829</td>
+          <td style="text-align:right">2.772</td>
+          <td style="text-align:right">1,81%</td>
+          <td style="text-align:right">R$ 1,34</td>
+          <td style="text-align:right">68</td>
+          <td style="text-align:right" class="warn">R$ 54,83</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">3</td>
+          <td><span class="tag tag-yellow">Caro</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">02.PixelListaIG090</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Quente_Teste02</td>
+          <td style="text-align:right">R$ 2.438</td>
+          <td style="text-align:right">91K</td>
+          <td style="text-align:right">48.218</td>
+          <td style="text-align:right">1.874</td>
+          <td style="text-align:right">2,05%</td>
+          <td style="text-align:right">R$ 1,30</td>
+          <td style="text-align:right">30</td>
+          <td style="text-align:right" class="bad">R$ 81,29</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">1</td>
+          <td><span class="tag tag-red">Alto CPL</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">02.RemarketingSDA_Auto</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">WhatsApp</td>
+          <td style="text-align:right">R$ 2.028</td>
+          <td style="text-align:right">29K</td>
+          <td style="text-align:right">6.311</td>
+          <td style="text-align:right">474</td>
+          <td style="text-align:right">1,64%</td>
+          <td style="text-align:right">R$ 4,28</td>
+          <td style="text-align:right">4</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right" class="good">81</td>
+          <td><span class="tag tag-green">⭐ Top WA</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">04.PixelListaIG090</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Quente_Teste02</td>
+          <td style="text-align:right">R$ 1.881</td>
+          <td style="text-align:right">81K</td>
+          <td style="text-align:right">47.070</td>
+          <td style="text-align:right">1.475</td>
+          <td style="text-align:right">1,82%</td>
+          <td style="text-align:right">R$ 1,28</td>
+          <td style="text-align:right">33</td>
+          <td style="text-align:right" class="warn">R$ 57,01</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">2</td>
+          <td><span class="tag tag-yellow">Médio</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">01.Empresário</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Frio_Teste03</td>
+          <td style="text-align:right">R$ 1.319</td>
+          <td style="text-align:right">50K</td>
+          <td style="text-align:right">38.186</td>
+          <td style="text-align:right">1.363</td>
+          <td style="text-align:right" class="good">2,73%</td>
+          <td style="text-align:right" class="good">R$ 0,97</td>
+          <td style="text-align:right">59</td>
+          <td style="text-align:right" class="good">R$ 22,36</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td><span class="tag tag-green">Bom CPL</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">02.Env014D_IG</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Venda_Quente_ABO</td>
+          <td style="text-align:right">R$ 1.317</td>
+          <td style="text-align:right">25K</td>
+          <td style="text-align:right">9.656</td>
+          <td style="text-align:right">293</td>
+          <td style="text-align:right">1,18%</td>
+          <td style="text-align:right">R$ 4,50</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right" class="good">10</td>
+          <td style="text-align:right">3</td>
+          <td><span class="tag tag-green">⭐ CPA R$131</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">03.VisitouPerfil030D</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Formulário_ABO</td>
+          <td style="text-align:right">R$ 1.137</td>
+          <td style="text-align:right">57K</td>
+          <td style="text-align:right">25.690</td>
+          <td style="text-align:right">668</td>
+          <td style="text-align:right">1,18%</td>
+          <td style="text-align:right">R$ 1,70</td>
+          <td style="text-align:right" class="good">111</td>
+          <td style="text-align:right" class="good">R$ 10,25</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">23</td>
+          <td><span class="tag tag-green">⭐ Melhor CPL</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">02.VisitouPerfil007D</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Formulário_ABO</td>
+          <td style="text-align:right">R$ 1.062</td>
+          <td style="text-align:right">30K</td>
+          <td style="text-align:right">9.559</td>
+          <td style="text-align:right">431</td>
+          <td style="text-align:right">1,43%</td>
+          <td style="text-align:right">R$ 2,47</td>
+          <td style="text-align:right">61</td>
+          <td style="text-align:right" class="good">R$ 17,42</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">16</td>
+          <td><span class="tag tag-green">Bom CPL</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">01.LL1Compradores_Frio</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Lista_Espera_Frio</td>
+          <td style="text-align:right">R$ 1.056</td>
+          <td style="text-align:right">39K</td>
+          <td style="text-align:right">30.005</td>
+          <td style="text-align:right">1.234</td>
+          <td style="text-align:right" class="good">3,16%</td>
+          <td style="text-align:right" class="good">R$ 0,86</td>
+          <td style="text-align:right">60</td>
+          <td style="text-align:right" class="good">R$ 17,61</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td><span class="tag tag-green">Bom CPL</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">05.HighTicketMKT</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Frio_Teste03</td>
+          <td style="text-align:right">R$ 1.059</td>
+          <td style="text-align:right">35K</td>
+          <td style="text-align:right">30.294</td>
+          <td style="text-align:right">1.359</td>
+          <td style="text-align:right" class="good">3,85%</td>
+          <td style="text-align:right" class="good">R$ 0,78</td>
+          <td style="text-align:right">36</td>
+          <td style="text-align:right" class="good">R$ 29,42</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">1</td>
+          <td><span class="tag tag-green">Bom CTR</span></td>
+        </tr>
+        <tr>
+          <td class="name-col">04.ICPSniper090D</td>
+          <td style="font-family:'DM Sans'; font-size:11px; color:var(--text-secondary)">Formulário_ABO</td>
+          <td style="text-align:right">R$ 1.014</td>
+          <td style="text-align:right">46K</td>
+          <td style="text-align:right">25.441</td>
+          <td style="text-align:right">510</td>
+          <td style="text-align:right">1,11%</td>
+          <td style="text-align:right">R$ 1,99</td>
+          <td style="text-align:right" class="good">105</td>
+          <td style="text-align:right" class="good">R$ 9,66</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">8</td>
+          <td><span class="tag tag-green">⭐ CPL top</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 5: RANKING DE EFICIÊNCIA -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏆</span> Ranking de Eficiência — CPL (Custo por Lead)</div>
+  
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+    <!-- MELHORES CPL -->
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px;">
+      <h4 style="color:var(--green); margin-bottom:16px; font-size:15px;">✅ Top 5 Melhor CPL</h4>
+      <table style="font-size:12px">
+        <tr><td class="name-col">04.ICPSniper090D (Form)</td><td style="text-align:right" class="good">R$ 9,66</td><td style="text-align:right">105 leads</td></tr>
+        <tr><td class="name-col">03.VisitouPerfil030D (Form)</td><td style="text-align:right" class="good">R$ 10,25</td><td style="text-align:right">111 leads</td></tr>
+        <tr><td class="name-col">02.VisitouPerfil007D (Form)</td><td style="text-align:right" class="good">R$ 17,42</td><td style="text-align:right">61 leads</td></tr>
+        <tr><td class="name-col">01.RMKT3x_Auto (Form)</td><td style="text-align:right" class="good">R$ 17,52</td><td style="text-align:right">45 leads</td></tr>
+        <tr><td class="name-col">01.LL1Compradores (Frio LE)</td><td style="text-align:right" class="good">R$ 17,61</td><td style="text-align:right">60 leads</td></tr>
+      </table>
+    </div>
+    <!-- PIORES CPL -->
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px;">
+      <h4 style="color:var(--red); margin-bottom:16px; font-size:15px;">🔴 Top 5 Pior CPL</h4>
+      <table style="font-size:12px">
+        <tr><td class="name-col">02.PixelListaIG090 (Quente02)</td><td style="text-align:right" class="bad">R$ 81,29</td><td style="text-align:right">30 leads</td></tr>
+        <tr><td class="name-col">01.PixelListaIG090 (Quente02)</td><td style="text-align:right" class="bad">R$ 66,03</td><td style="text-align:right">21 leads</td></tr>
+        <tr><td class="name-col">03.PixelListaIG090 (Quente02)</td><td style="text-align:right" class="warn">R$ 58,74</td><td style="text-align:right">74 leads</td></tr>
+        <tr><td class="name-col">05.PixelListaIG090 (Quente02)</td><td style="text-align:right" class="warn">R$ 57,67</td><td style="text-align:right">14 leads</td></tr>
+        <tr><td class="name-col">06.PixelListaIG090 (Quente02)</td><td style="text-align:right" class="warn">R$ 54,83</td><td style="text-align:right">68 leads</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SEÇÃO 6: RECOMENDAÇÕES -->
+<!-- ================================================================ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🚀</span> Recomendações de Otimização</div>
+  <div class="insights-grid">
+    
+    <div class="insight-card" style="border-left:3px solid var(--green)">
+      <h4>✅ Escalar Formulários (CPL R$ 7-17)</h4>
+      <p>A campanha <span class="highlight">Formulário_Quente_ABO</span> tem CPL de R$ 12,98 com 346 leads. Os conjuntos VisitouPerfil030D (R$ 10,25) e ICPSniper090D (R$ 9,66) são os mais eficientes da conta inteira. <strong style="color:var(--text)">AÇÃO:</strong> Aumentar orçamento desses 2 conjuntos em 30-50%. Esse é o principal motor de leads baratos.</p>
+    </div>
+    
+    <div class="insight-card" style="border-left:3px solid var(--red)">
+      <h4>🔴 Reduzir Quente_Teste02 (CPL R$ 55-81)</h4>
+      <p>A campanha <span class="highlight" style="color:var(--red)">Quente_ABO_Teste02</span> consome <strong style="color:var(--text)">R$ 16.402 (37% do budget)</strong> mas tem CPL 4-6x maior que Formulário. Os 6 ad sets "PixelListaIG090" têm CPL entre R$ 54-81. <strong style="color:var(--text)">AÇÃO:</strong> Pausar conjuntos 01 e 02 (CPL R$ 66 e R$ 81). Redirecionar R$ 3.800/mês para Formulário.</p>
+    </div>
+    
+    <div class="insight-card" style="border-left:3px solid var(--cyan)">
+      <h4>💰 Manter Vendas CBO04 + Quente ABO</h4>
+      <p>As campanhas de venda geram <strong style="color:var(--text)">36 compras por R$ 6.530</strong> (CPA ~R$ 181). O conjunto <span class="highlight">Env014D_IG</span> tem CPA de R$ 131 com 10 compras — melhor CPA da conta. O <span class="highlight">LALCompradores_Advantage</span> tem 24 compras com CPA R$ 178. <strong style="color:var(--text)">AÇÃO:</strong> Manter e monitorar frequência. Escalar Env014D se ticket médio &gt; R$ 181.</p>
+    </div>
+    
+    <div class="insight-card" style="border-left:3px solid var(--orange)">
+      <h4>💬 Otimizar WhatsApp</h4>
+      <p>92 conversas por R$ 3.203 (R$ 34,82/conv). O <span class="highlight">RemarketingSDA_Auto</span> gera 88% das conversas com taxa de resposta de 85%. O <span class="highlight" style="color:var(--red)">Checkout_Auto tem custo 4x maior</span> e poucas conversas — quem fez checkout prefere comprar direto. <strong style="color:var(--text)">AÇÃO:</strong> Pausar Checkout_Auto no WhatsApp. Aumentar RMKT em 20%.</p>
+    </div>
+    
+    <div class="insight-card" style="border-left:3px solid var(--blue)">
+      <h4>🎯 Frio: Empresário é o melhor público</h4>
+      <p>Na campanha Frio, o segmento <span class="highlight">Empresário</span> tem CPL R$ 22,36 com CTR 2,73%, seguido por <span class="highlight">ProfissionalSaúde</span> (CPL R$ 31,30, CTR 4,85%). HighTicketMKT tem o melhor CTR (3,85%). <strong style="color:var(--text)">AÇÃO:</strong> Aumentar Empresário em 30%. Testar novos criativos para Dentista (CPL R$ 30,63) e Agro.</p>
+    </div>
+    
+    <div class="insight-card" style="border-left:3px solid var(--yellow)">
+      <h4>⚡ Formulário TesteCriativo: Escalar rápido</h4>
+      <p>Com apenas <span class="highlight">R$ 686 investidos</span>, já gerou 89 leads com CPL R$ 7,71 — <strong style="color:var(--text)">o menor CPL da conta!</strong> Está em fase de teste com 4 adsets. <strong style="color:var(--text)">AÇÃO:</strong> Dobrar orçamento imediatamente. Se mantiver CPL &lt; R$ 15, escalar agressivamente. Esse é o teste mais promissor.</p>
+    </div>
+    
+  </div>
+</div>
+
+<!-- RESUMO VISUAL DO RANKING COMERCIAL -->
+<div class="section">
+  <div class="section-title"><span class="icon">📈</span> Resumo — Dados do Ranking Comercial (Imagem)</div>
+  <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px;">
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; margin-bottom:20px;">
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Total Vendas / Meta</div>
+        <div class="value" style="color:var(--green)">340 / 1.271</div>
+        <div class="sub">26,8% atingido</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Ingressos Restantes</div>
+        <div class="value" style="color:var(--yellow)">931</div>
+        <div class="sub">73,2% da meta</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">Valor Total Vendas</div>
+        <div class="value" style="color:var(--cyan)">R$ 88.000</div>
+        <div class="sub">Faturamento acumulado</div>
+      </div>
+      <div class="kpi" style="background:#0d1a0d">
+        <div class="label">2º Lote Reabertura</div>
+        <div class="value" style="color:var(--purple)">Nathalia: 15</div>
+        <div class="sub">Junior: 6 | Jalai: 4</div>
+      </div>
+    </div>
+    <p style="color:var(--text-secondary); font-size:13px; line-height:1.7;">
+      <strong style="color:var(--text)">Contexto:</strong> Com 340 vendas de 1.271 (26,8%), ainda faltam 931 ingressos. O 2º Lote de Reabertura começou e Nathalia lidera com 15 vendas. A semana vigente (28/02-06/03) ainda está em 0 para todos. 
+      <strong style="color:var(--green)">Considerando o investimento Meta de R$ 43.826 e faturamento de R$ 88K, o ROAS geral Meta é de 2.01x.</strong>
+      As campanhas de venda direta (Advantage CBO + Quente ABO) são as maiores responsáveis pela conversão em compra, enquanto as de Lead alimentam o comercial.
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center; padding:32px; color:var(--text-secondary); font-size:12px; border-top:1px solid var(--border); margin-top:40px;">
+  <p>Relatório gerado automaticamente via API Meta Ads · Conta 04: act_377480853270622 · Samuel MKT</p>
+  <p style="margin-top:4px">Período: 31/Jan/2026 — 01/Mar/2026 · Atualizado em 02/Mar/2026</p>
+</div>
+
+</div>
+</body>
+</html>
