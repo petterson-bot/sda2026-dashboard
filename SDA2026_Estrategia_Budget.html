@@ -8,48 +8,41 @@
   @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap');
 
   :root {
-    --g: #4AE54A;
-    --g2: #2DB82D;
-    --g3: #1A7A1A;
-    --bg: #080808;
-    --bg2: #0f0f0f;
-    --bg3: #151515;
-    --bd: #222;
-    --txt: #e0e0e0;
-    --muted: #666;
-    --red: #ff3535;
-    --gold: #FFD700;
-    --blue: #3b9eff;
-    --purple: #a855f7;
+    /* ── CORES EXATAS DO SISTEMA SDA ── */
+    --green:       #4AE54A;   /* verde neon — números, destaques */
+    --green-bar:   #3dba3d;   /* verde das barras de ranking */
+    --green-bar2:  #2fa02f;   /* verde médio — barras menores */
+    --green-track: #132213;   /* fundo das barras (track) */
+    --green-dark:  #1a2e1a;   /* bordas, separadores */
+    --green-dim:   #0d1a0d;   /* fundo de cards sutis */
+    --bg:          #0a0f0a;   /* fundo geral — preto esverdeado */
+    --bg2:         #0f150f;   /* fundo de cards */
+    --bg3:         #141e14;   /* hover / fundo alternado */
+    --border:      #1e2e1e;   /* bordas padrão */
+    --border2:     #162016;   /* bordas internas mais sutis */
+    --white:       #FFFFFF;   /* texto principal */
+    --text:        #CCCCCC;   /* texto secundário */
+    --muted:       #7a8a7a;   /* labels, legendas */
+    --red:         #FF3B3B;   /* alertas, ingressos restantes */
+    --yellow:      #FFD700;   /* atenção moderada */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     background: var(--bg);
-    color: var(--txt);
+    color: var(--text);
     font-family: 'Barlow', sans-serif;
     font-size: 14px;
     line-height: 1.5;
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
-  /* SCAN LINE effect */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-    pointer-events: none;
-    z-index: 999;
-  }
-
-  /* ── HEADER ── */
+  /* ══════════════ HEADER ══════════════ */
   .hdr {
-    background: #050505;
-    border-bottom: 1px solid var(--g3);
-    padding: 18px 40px;
+    background: #070c07;
+    border-bottom: 2px solid var(--green-dark);
+    padding: 14px 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,339 +50,187 @@
     top: 0;
     z-index: 100;
   }
+
+  .hdr-brand { display: flex; align-items: flex-end; gap: 14px; }
+
   .hdr-logo {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -1px;
-    line-height: 1;
-  }
-  .hdr-logo em { color: var(--g); font-style: normal; }
-  .hdr-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
-  .hdr-meta { text-align: right; }
-  .hdr-meta .label { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
-  .hdr-meta .val { font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; color: var(--red); }
-
-  /* ── PAGE INTRO ── */
-  .intro {
-    padding: 36px 40px 0;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-  .intro-title {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 13px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--g);
-    margin-bottom: 8px;
-  }
-  .intro-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 38px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .intro-headline span { color: var(--g); }
-  .intro-desc { font-size: 14px; color: var(--muted); max-width: 700px; line-height: 1.7; }
-
-  /* ── CONTEXT STRIP ── */
-  .context-strip {
-    display: flex;
-    gap: 0;
-    margin: 24px 40px;
-    border: 1px solid var(--bd);
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cs-item {
-    flex: 1;
-    padding: 14px 20px;
-    border-right: 1px solid var(--bd);
-    background: var(--bg2);
-  }
-  .cs-item:last-child { border-right: none; }
-  .cs-item .cl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .cs-item .cv { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; line-height: 1; }
-  .cs-item .cs { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-  /* ── CENARIOS ── */
-  .cenarios-wrap {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 40px 60px;
-  }
-
-  .sec-label {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--g);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    margin-top: 32px;
-  }
-  .sec-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--g3), transparent); }
-
-  /* Scenario card */
-  .scenario {
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 28px;
-    border: 1px solid var(--bd);
-    position: relative;
-  }
-  .scenario::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-  .scenario.s3k::before { background: linear-gradient(to right, #1a5a1a, var(--g)); }
-  .scenario.s4k::before { background: linear-gradient(to right, #1a4a7a, var(--blue)); }
-  .scenario.s5k::before { background: linear-gradient(to right, #4a1a7a, var(--purple)); }
-
-  .sc-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 28px 20px;
-    background: var(--bg2);
-    border-bottom: 1px solid var(--bd);
-    cursor: pointer;
-    user-select: none;
-  }
-  .sc-header:hover { background: var(--bg3); }
-
-  .sc-left { display: flex; align-items: center; gap: 20px; }
-  .sc-budget {
     font-family: 'Rajdhani', sans-serif;
     font-size: 48px;
     font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1px;
     line-height: 1;
   }
-  .scenario.s3k .sc-budget { color: var(--g); }
-  .scenario.s4k .sc-budget { color: var(--blue); }
-  .scenario.s5k .sc-budget { color: var(--purple); }
+  .hdr-logo span { color: var(--green); }
 
-  .sc-info { }
-  .sc-tag {
-    display: inline-block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    padding: 2px 8px;
-    margin-bottom: 4px;
+  .hdr-label { padding-bottom: 7px; line-height: 1.2; }
+  .hdr-label .l1 { font-family: 'Rajdhani', sans-serif; font-size: 10px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
+  .hdr-label .l2 { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--green); letter-spacing: 3px; text-transform: uppercase; }
+
+  .hdr-stats { display: flex; gap: 2px; }
+  .hdr-stat { background: var(--bg2); border: 1px solid var(--border); padding: 8px 18px; text-align: center; min-width: 90px; }
+  .hdr-stat:first-child { border-radius: 4px 0 0 4px; }
+  .hdr-stat:last-child  { border-radius: 0 4px 4px 0; }
+  .hdr-stat .sl { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 3px; }
+  .hdr-stat .sv { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; line-height: 1; color: var(--white); }
+  .hdr-stat .sv.green  { color: var(--green); }
+  .hdr-stat .sv.red    { color: var(--red); }
+  .hdr-stat .sv.yellow { color: var(--yellow); }
+
+  /* ══════════════ WRAP ══════════════ */
+  .wrap { max-width: 1380px; margin: 0 auto; padding: 28px 36px 60px; }
+
+  /* ══════════════ PAGE TITLE ══════════════ */
+  .page-eyebrow {
+    font-family: 'Rajdhani', sans-serif; font-size: 10px; letter-spacing: 5px; color: var(--green);
+    text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
   }
-  .scenario.s3k .sc-tag { background: #0d2b0d; color: var(--g); border: 1px solid var(--g3); }
-  .scenario.s4k .sc-tag { background: #0a1a2e; color: var(--blue); border: 1px solid #1e3a6e; }
-  .scenario.s5k .sc-tag { background: #1a0d2e; color: var(--purple); border: 1px solid #3b1a6e; }
+  .page-eyebrow::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; }
+  .page-eyebrow::after  { content:''; flex:1; height:1px; background: linear-gradient(to right, var(--green-dark), transparent); }
+  .page-h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+  .page-h1 span { color: var(--green); }
+  .page-sub { font-size: 13px; color: var(--muted); max-width: 680px; line-height: 1.7; margin-bottom: 28px; }
 
-  .sc-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .sc-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  /* ══════════════ CONTEXT BAR ══════════════ */
+  .ctx-bar { display: grid; grid-template-columns: repeat(6, 1fr); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 32px; }
+  .ctx-item { background: var(--bg2); padding: 12px 16px; border-right: 1px solid var(--border); }
+  .ctx-item:last-child { border-right: none; }
+  .ctx-item .cl { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
+  .ctx-item .cv { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; line-height: 1; color: var(--green); }
+  .ctx-item .cv.red { color: var(--red); }
+  .ctx-item .cv.wht { color: var(--white); }
+  .ctx-item .cs { font-size: 10px; color: var(--muted); margin-top: 2px; }
 
-  .sc-kpis { display: flex; gap: 28px; align-items: center; }
+  /* ══════════════ SECTION LABEL ══════════════ */
+  .sec { font-family: 'Rajdhani', sans-serif; font-size: 10px; letter-spacing: 4px; color: var(--green); text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin: 30px 0 16px; }
+  .sec::before { content:'●'; font-size: 8px; }
+  .sec::after  { content:''; flex:1; height:1px; background: linear-gradient(to right, var(--green-dark), transparent); }
+
+  /* ══════════════ SCENARIO CARD ══════════════ */
+  .sc { border: 1px solid var(--border); border-top: 3px solid var(--green-dark); border-radius: 6px; overflow: hidden; margin-bottom: 18px; }
+  .sc.s1 { border-top-color: #1e4a1e; }
+  .sc.s2 { border-top-color: var(--green-bar2); }
+  .sc.s3 { border-top-color: var(--green); }
+
+  .sc-hdr { display: flex; align-items: center; justify-content: space-between; padding: 18px 26px; background: var(--bg2); border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; gap: 20px; }
+  .sc-hdr:hover { background: var(--bg3); }
+  .sc-left { display: flex; align-items: center; gap: 20px; flex: 1; }
+
+  .sc-valor { font-family: 'Rajdhani', sans-serif; font-size: 54px; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .sc.s1 .sc-valor { color: #7fe87f; }
+  .sc.s2 .sc-valor { color: var(--green); }
+  .sc.s3 .sc-valor { color: var(--white); text-shadow: 0 0 24px rgba(74,229,74,0.5); }
+
+  .sc-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 5px; background: var(--green-dim); color: var(--green); border: 1px solid var(--green-dark); }
+  .sc-nome { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+  .sc-desc { font-size: 12px; color: var(--muted); }
+
+  .sc-kpis { display: flex; gap: 22px; flex-shrink: 0; }
   .sc-kpi { text-align: center; }
-  .sc-kpi .kv { font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; line-height: 1; }
-  .sc-kpi .kl { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .sc-kpi .kv { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; line-height: 1; color: var(--green); }
+  .sc-kpi .kv.red    { color: var(--red); }
+  .sc-kpi .kv.yellow { color: var(--yellow); }
+  .sc-kpi .kv.white  { color: var(--white); }
+  .sc-kpi .kl { font-size: 9px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
-  .sc-expand { color: var(--muted); font-size: 18px; transition: transform 0.3s; }
-  .scenario.open .sc-expand { transform: rotate(180deg); }
-
+  .sc-toggle { color: var(--muted); font-size: 14px; transition: transform 0.3s; flex-shrink: 0; }
+  .sc.open .sc-toggle { transform: rotate(180deg); }
   .sc-body { display: none; }
-  .scenario.open .sc-body { display: block; }
+  .sc.open .sc-body { display: block; }
 
-  /* allocation table */
-  .alloc-wrap { padding: 24px 28px; background: var(--bg); border-bottom: 1px solid var(--bd); }
+  /* ══════════════ ALLOC TABLE ══════════════ */
+  .alloc { padding: 20px 26px; background: var(--bg); border-bottom: 1px solid var(--border); }
   .alloc-title { font-family: 'Rajdhani', sans-serif; font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 14px; }
+  .group-lbl { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; padding: 8px 0 6px; border-bottom: 1px solid var(--border2); margin-bottom: 8px; }
+  .group-lbl b { color: var(--green); font-weight: 600; }
 
-  .alloc-grid { display: grid; gap: 8px; }
+  .row { display: grid; grid-template-columns: 26px 1fr 105px 115px 80px; gap: 12px; align-items: center; background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--green-dark); border-radius: 4px; padding: 10px 14px; margin-bottom: 6px; }
+  .row:hover { background: var(--bg3); }
+  .row.top { border-left-color: var(--green); }
+  .row.mid { border-left-color: var(--green-bar2); }
+  .row.cut { border-left-color: var(--red); opacity: 0.55; }
 
-  .alloc-row {
-    display: grid;
-    grid-template-columns: 28px 1fr 90px 80px 80px;
-    gap: 12px;
-    align-items: center;
-    background: var(--bg2);
-    border: 1px solid var(--bd);
-    border-radius: 6px;
-    padding: 12px 14px;
-    transition: border-color 0.2s;
-  }
-  .alloc-row:hover { border-color: #333; }
-  .alloc-row.highlight-g { border-left: 3px solid var(--g); }
-  .alloc-row.highlight-b { border-left: 3px solid var(--blue); }
-  .alloc-row.highlight-p { border-left: 3px solid var(--purple); }
-  .alloc-row.highlight-y { border-left: 3px solid var(--gold); }
-  .alloc-row.highlight-r { border-left: 3px solid var(--red); opacity: 0.6; }
+  .r-ico { font-size: 14px; text-align: center; }
+  .r-name { font-size: 13px; font-weight: 600; color: var(--white); line-height: 1.3; }
+  .r-sub  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .r-bud  { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--green); white-space: nowrap; }
+  .r-bud.cut { color: var(--red); }
+  .r-kpi  { font-size: 11px; color: var(--muted); line-height: 1.65; }
+  .r-bar-track { background: var(--green-track); height: 6px; border-radius: 3px; overflow: hidden; margin-top: 3px; }
+  .r-bar-fill  { height: 100%; border-radius: 3px; background: var(--green-bar); }
+  .r-bar-fill.dim { background: var(--green-bar2); }
+  .r-bar-fill.red { background: var(--red); }
+  .r-pct { font-size: 9px; color: var(--muted); margin-top: 3px; }
 
-  .ar-icon { font-size: 16px; text-align: center; }
-  .ar-info .ar-name { font-size: 13px; font-weight: 600; color: #ddd; }
-  .ar-info .ar-sub { font-size: 11px; color: var(--muted); }
-  .ar-budget { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; }
-  .ar-kpi { font-size: 11px; color: var(--muted); }
-  .ar-bar { }
-  .ar-bar-track { background: #1a1a1a; height: 5px; border-radius: 3px; overflow: hidden; margin-top: 4px; }
-  .ar-bar-fill { height: 100%; border-radius: 3px; }
+  /* ══════════════ PROJECTION BAR ══════════════ */
+  .proj { display: flex; align-items: center; gap: 20px; padding: 14px 26px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .proj-lbl { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; white-space: nowrap; }
+  .proj-track { flex: 1; background: var(--green-track); height: 14px; border-radius: 7px; overflow: hidden; }
+  .proj-fill { height: 100%; border-radius: 7px; background: linear-gradient(to right, #1e6a1e, var(--green-bar)); }
+  .proj-fill.full { background: linear-gradient(to right, var(--green-bar2), var(--green)); }
+  .proj-nums { white-space: nowrap; }
+  .proj-nums .pv { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--green); line-height: 1; }
+  .proj-nums .ps { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .proj-nums .ps.red    { color: var(--red); }
+  .proj-nums .ps.yellow { color: var(--yellow); }
+  .proj-nums .ps.green  { color: var(--green); }
 
-  /* insights bottom */
-  .sc-insights {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--bd);
-  }
-  .si-item {
-    padding: 18px 22px;
-    border-right: 1px solid var(--bd);
-  }
-  .si-item:last-child { border-right: none; }
-  .si-icon { font-size: 20px; margin-bottom: 8px; }
-  .si-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-  .si-body { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  /* ══════════════ INSIGHT STRIP ══════════════ */
+  .si-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--bg2); border-top: 1px solid var(--border); }
+  .si { padding: 16px 20px; border-right: 1px solid var(--border2); }
+  .si:last-child { border-right: none; }
+  .si-ico { font-size: 18px; margin-bottom: 7px; }
+  .si-t { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .si-b { font-size: 11px; color: var(--muted); line-height: 1.65; }
 
-  /* projection bar */
-  .projection {
-    padding: 18px 28px;
-    background: var(--bg2);
-    border-top: 1px solid var(--bd);
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-  .proj-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-  .proj-track { flex: 1; background: #111; height: 10px; border-radius: 5px; overflow: hidden; }
-  .proj-fill { height: 100%; border-radius: 5px; transition: width 1s ease; }
-  .proj-val { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; white-space: nowrap; }
-  .proj-sub { font-size: 11px; color: var(--muted); white-space: nowrap; }
-
-  /* comparison table */
-  .comparison {
-    background: var(--bg2);
-    border: 1px solid var(--bd);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 8px;
-  }
-  .comp-head {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 0;
-    border-bottom: 1px solid var(--bd);
-    background: var(--bg3);
-  }
-  .comp-head div {
-    padding: 12px 16px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-right: 1px solid var(--bd);
-  }
-  .comp-head .h3k { color: var(--g); }
-  .comp-head .h4k { color: var(--blue); }
-  .comp-head .h5k { color: var(--purple); }
+  /* ══════════════ COMPARISON TABLE ══════════════ */
+  .comp { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--bg2); }
+  .comp-head { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; background: var(--bg3); border-bottom: 1px solid var(--border); }
+  .comp-head div { padding: 10px 16px; font-family: 'Rajdhani', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; border-right: 1px solid var(--border); color: var(--muted); }
   .comp-head div:last-child { border-right: none; }
-
-  .comp-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 0;
-    border-bottom: 1px solid #141414;
-  }
+  .comp-head .c1 { color: #7fe87f; }
+  .comp-head .c2 { color: var(--green); }
+  .comp-head .c3 { color: var(--white); text-shadow: 0 0 10px rgba(74,229,74,0.3); }
+  .comp-row { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; border-bottom: 1px solid var(--border2); }
   .comp-row:last-child { border-bottom: none; }
-  .comp-row div {
-    padding: 11px 16px;
-    font-size: 13px;
-    border-right: 1px solid #141414;
-  }
+  .comp-row:hover { background: var(--bg3); }
+  .comp-row div { padding: 10px 16px; border-right: 1px solid var(--border2); font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 600; color: var(--white); }
+  .comp-row div:first-child { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 400; color: var(--muted); }
   .comp-row div:last-child { border-right: none; }
-  .comp-row .metric { color: var(--muted); font-size: 12px; }
-  .comp-row .v3k { color: var(--g); font-weight: 600; font-family: 'Rajdhani', sans-serif; font-size: 15px; }
-  .comp-row .v4k { color: var(--blue); font-weight: 600; font-family: 'Rajdhani', sans-serif; font-size: 15px; }
-  .comp-row .v5k { color: var(--purple); font-weight: 600; font-family: 'Rajdhani', sans-serif; font-size: 15px; }
+  .comp-row .g { color: var(--green); }
+  .comp-row .r { color: var(--red); }
+  .comp-row .y { color: var(--yellow); }
 
-  /* rec box */
-  .rec-box {
-    margin-top: 28px;
-    background: #0a1f0a;
-    border: 1px solid var(--g3);
-    border-left: 3px solid var(--g);
-    border-radius: 8px;
-    padding: 20px 24px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-  }
-  .rec-icon { font-size: 28px; flex-shrink: 0; }
-  .rec-content .rec-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--g); margin-bottom: 6px; }
-  .rec-content .rec-body { font-size: 13px; color: #aaa; line-height: 1.7; }
+  /* ══════════════ REC BOX ══════════════ */
+  .rec { display: flex; gap: 18px; align-items: flex-start; background: var(--green-dim); border: 1px solid var(--green-dark); border-left: 4px solid var(--green); border-radius: 6px; padding: 20px 24px; margin-top: 22px; }
+  .rec-ico { font-size: 26px; flex-shrink: 0; }
+  .rec-t { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--green); margin-bottom: 7px; }
+  .rec-b { font-size: 13px; color: var(--text); line-height: 1.75; }
+  .rec-b strong { color: var(--green); }
+  .rec-b .danger { color: var(--red); font-weight: 700; }
 
-  /* cronograma */
-  .timeline { margin-top: 8px; }
-  .tl-item {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 16px;
-    margin-bottom: 12px;
-    align-items: start;
-  }
-  .tl-period {
-    background: var(--bg2);
-    border: 1px solid var(--bd);
-    border-radius: 4px;
-    padding: 8px 12px;
-    text-align: center;
-  }
-  .tl-period .tp-range { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700; color: var(--g); }
-  .tl-period .tp-label { font-size: 9px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
-  .tl-content {
-    background: var(--bg2);
-    border: 1px solid var(--bd);
-    border-radius: 4px;
-    padding: 10px 14px;
-  }
-  .tl-content .tc-title { font-size: 13px; font-weight: 600; color: #ddd; margin-bottom: 4px; }
-  .tl-content .tc-body { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  /* ══════════════ CRONOGRAMA ══════════════ */
+  .tl { display: flex; flex-direction: column; gap: 8px; }
+  .tl-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; }
+  .tl-per { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--green-dark); border-radius: 4px; padding: 10px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+  .tl-per .pr { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700; color: var(--green); }
+  .tl-per .pl { font-size: 9px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .tl-con { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 12px 16px; }
+  .tl-con .ct { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .tl-con .cb { font-size: 12px; color: var(--muted); line-height: 1.65; }
 
-  /* footer */
-  .pg-footer {
-    border-top: 1px solid var(--bd);
-    padding: 20px 40px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-  .pg-footer span { color: var(--g); }
+  /* ══════════════ FOOTER ══════════════ */
+  .footer { border-top: 1px solid var(--border); padding: 16px 36px; text-align: center; color: var(--muted); font-size: 11px; letter-spacing: 1px; }
+  .footer span { color: var(--green); }
 
-  @media (max-width: 900px) {
-    .hdr { padding: 14px 20px; }
-    .context-strip, .cenarios-wrap, .intro { padding-left: 20px; padding-right: 20px; }
+  @media(max-width:1000px){
+    .ctx-bar { grid-template-columns: repeat(3,1fr); }
     .sc-kpis { display: none; }
-    .sc-insights { grid-template-columns: 1fr; }
-    .si-item { border-right: none; border-bottom: 1px solid var(--bd); }
-    .comp-head, .comp-row { grid-template-columns: 2fr 1fr 1fr 1fr; }
-    .alloc-row { grid-template-columns: 28px 1fr 80px; }
-    .alloc-row .ar-kpi, .alloc-row .ar-bar { display: none; }
-    .tl-item { grid-template-columns: 1fr; }
+    .si-strip { grid-template-columns: 1fr; }
+    .comp-head,.comp-row { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .row { grid-template-columns: 26px 1fr 90px; }
+    .row .r-kpi, .row .r-pct, .row .r-bar-track { display: none; }
+    .tl-row { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -397,769 +238,373 @@
 
 <!-- HEADER -->
 <div class="hdr">
-  <div>
-    <div class="hdr-logo">SD<em>A</em></div>
-    <div class="hdr-sub">Ao Vivo 2026 · Estratégia de Budget</div>
+  <div class="hdr-brand">
+    <div class="hdr-logo">SD<span>A</span></div>
+    <div class="hdr-label">
+      <div class="l1">Ao Vivo 2026</div>
+      <div class="l2">Estratégia de Budget</div>
+    </div>
   </div>
-  <div style="display:flex;gap:24px;align-items:center">
-    <div class="hdr-meta">
-      <div class="label">Ingressos Restantes</div>
-      <div class="val">931</div>
-    </div>
-    <div class="hdr-meta">
-      <div class="label">Dias Restantes</div>
-      <div class="val" style="color:var(--gold)">50</div>
-    </div>
-    <div class="hdr-meta">
-      <div class="label">Meta/dia</div>
-      <div class="val">18,6</div>
-    </div>
+  <div class="hdr-stats">
+    <div class="hdr-stat"><div class="sl">Meta Total</div><div class="sv green">1.271</div></div>
+    <div class="hdr-stat"><div class="sl">Vendidos</div><div class="sv green">340</div></div>
+    <div class="hdr-stat"><div class="sl">Restantes</div><div class="sv red">931</div></div>
+    <div class="hdr-stat"><div class="sl">Dias Restantes</div><div class="sv yellow">50</div></div>
+    <div class="hdr-stat"><div class="sl">Meta / Dia</div><div class="sv green">18,6</div></div>
   </div>
 </div>
 
-<div class="intro">
-  <div class="intro-title">● Planejamento Estratégico</div>
-  <div class="intro-headline">3 Cenários de Investimento<br>para <span>Vender 931 Ingressos em 50 Dias</span></div>
-  <div class="intro-desc">Cada cenário distribui o budget diário de forma otimizada entre Meta Ads (Conta 04) e Google Ads, priorizando os canais com melhor CPL e CPA comprovados pelos dados históricos da conta.</div>
-</div>
+<div class="wrap">
 
-<!-- CONTEXT STRIP -->
-<div class="context-strip">
-  <div class="cs-item">
-    <div class="cl">Melhor CPL Meta</div>
-    <div class="cv" style="color:var(--g)">R$7,71</div>
-    <div class="cs">Formulário TesteCriativo</div>
-  </div>
-  <div class="cs-item">
-    <div class="cl">Melhor CPA Meta</div>
-    <div class="cv" style="color:var(--g)">R$178</div>
-    <div class="cs">Advantage CBO Teste04</div>
-  </div>
-  <div class="cs-item">
-    <div class="cl">Melhor CPL Google</div>
-    <div class="cv" style="color:var(--blue)">R$16,76</div>
-    <div class="cs">PMax Sudeste</div>
-  </div>
-  <div class="cs-item">
-    <div class="cl">Melhor CPA Google</div>
-    <div class="cv" style="color:var(--blue)">R$28,43</div>
-    <div class="cs">PMax Lead Comercial</div>
-  </div>
-  <div class="cs-item">
-    <div class="cl">Checkouts Perdidos</div>
-    <div class="cv" style="color:var(--red)">269</div>
-    <div class="cs">Sem remarketing ativo</div>
-  </div>
-  <div class="cs-item">
-    <div class="cl">Budget Desperdiçado</div>
-    <div class="cv" style="color:var(--red)">R$3.204</div>
-    <div class="cs">WhatsApp — pausar já</div>
-  </div>
-</div>
+  <div class="page-eyebrow">Planejamento Estratégico — Conta 04 · act_377480853270622</div>
+  <div class="page-h1">3 Cenários de Investimento<br>para <span>Vender 931 Ingressos em 50 Dias</span></div>
+  <div class="page-sub">Distribuição otimizada entre Meta Ads e Google Ads com base nos dados reais da conta. Cada cenário prioriza canais com CPL e CPA comprovados pelos últimos 30 dias.</div>
 
-<div class="cenarios-wrap">
+  <div class="ctx-bar">
+    <div class="ctx-item"><div class="cl">Melhor CPL Meta</div><div class="cv">R$7,71</div><div class="cs">Formulário TesteCriativo</div></div>
+    <div class="ctx-item"><div class="cl">Melhor CPA Meta</div><div class="cv">R$178</div><div class="cs">Advantage CBO Teste04</div></div>
+    <div class="ctx-item"><div class="cl">Melhor CPL Google</div><div class="cv">R$16,76</div><div class="cs">PMax Sudeste</div></div>
+    <div class="ctx-item"><div class="cl">Checkouts Perdidos</div><div class="cv red">269</div><div class="cs">Sem remarketing ativo</div></div>
+    <div class="ctx-item"><div class="cl">Budget Desperdiçado</div><div class="cv red">R$3.204</div><div class="cs">WhatsApp — pausar já</div></div>
+    <div class="ctx-item"><div class="cl">Gasto 30 dias</div><div class="cv wht">R$53.3K</div><div class="cs">Meta Ads Conta 04</div></div>
+  </div>
 
-  <!-- ══════════════ CENÁRIO 1 · R$3K ══════════════ -->
-  <div class="sec-label">Cenário 01 — Conservador</div>
-  <div class="scenario s3k" id="sc3k">
-    <div class="sc-header" onclick="toggle('sc3k')">
+
+  <!-- CENÁRIO 1 -->
+  <div class="sec">Cenário 01 — Conservador</div>
+  <div class="sc s1" id="sc1">
+    <div class="sc-hdr" onclick="tog('sc1')">
       <div class="sc-left">
-        <div class="sc-budget">R$3K</div>
-        <div class="sc-info">
-          <div class="sc-tag">Cenário 01 · Conservador</div>
-          <div class="sc-name">Eficiência Máxima com Budget Enxuto</div>
-          <div class="sc-desc">Concentra 100% em canais comprovados. Zero desperdício. Ideal se o caixa for limitado.</div>
+        <div class="sc-valor">R$3K</div>
+        <div>
+          <div class="sc-badge">Cenário 01 · Conservador</div>
+          <div class="sc-nome">Eficiência Máxima com Budget Enxuto</div>
+          <div class="sc-desc">Concentra 100% nos canais comprovados. Zero desperdício. Ideal se o caixa for limitado.</div>
         </div>
       </div>
       <div class="sc-kpis">
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--g)">~720</div>
-          <div class="kl">Leads/mês est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--g)">~380</div>
-          <div class="kl">Vendas/50 dias est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--gold)">41%</div>
-          <div class="kl">Meta atingida</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--g)">R$395</div>
-          <div class="kl">Custo por venda</div>
-        </div>
+        <div class="sc-kpi"><div class="kv">~380</div><div class="kl">Vendas/50d</div></div>
+        <div class="sc-kpi"><div class="kv red">41%</div><div class="kl">da Meta</div></div>
+        <div class="sc-kpi"><div class="kv white">R$395</div><div class="kl">Custo/venda</div></div>
+        <div class="sc-kpi"><div class="kv">~720</div><div class="kl">Leads/mês</div></div>
       </div>
-      <div class="sc-expand">▼</div>
+      <div class="sc-toggle">▼</div>
     </div>
-
     <div class="sc-body">
-      <div class="alloc-wrap">
+      <div class="alloc">
         <div class="alloc-title">Distribuição Diária — R$3.000/dia</div>
-        <div class="alloc-grid">
-
-          <!-- META -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:4px 0 6px">Meta Ads — R$2.000/dia (67%)</div>
-
-          <div class="alloc-row highlight-g">
-            <div class="ar-icon">⭐</div>
-            <div class="ar-info">
-              <div class="ar-name">Formulário TesteCriativo + Formulário Principal</div>
-              <div class="ar-sub">Lead · ABO · Quente · Inst. Form. — TOP performers</div>
-            </div>
-            <div class="ar-budget" style="color:var(--g)">R$700/dia</div>
-            <div class="ar-kpi">CPL ~R$10<br>~70 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--g);width:70%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">35% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-g">
-            <div class="ar-icon">🛒</div>
-            <div class="ar-info">
-              <div class="ar-name">Advantage CBO Venda Checkout Teste04</div>
-              <div class="ar-sub">Venda · CBO · Advantage+ — melhor CPA de venda</div>
-            </div>
-            <div class="ar-budget" style="color:var(--g)">R$600/dia</div>
-            <div class="ar-kpi">CPA ~R$180<br>~3,3 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--g);width:60%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">30% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-g">
-            <div class="ar-icon">🔁</div>
-            <div class="ar-info">
-              <div class="ar-name">Remarketing Checkout (NOVO — criar)</div>
-              <div class="ar-sub">Venda · ABO · Custom Audience "Checkout 7d" — 269 já prontos</div>
-            </div>
-            <div class="ar-budget" style="color:var(--g)">R$300/dia</div>
-            <div class="ar-kpi">CPA est. ~R$120<br>~2,5 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--g);width:30%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">15% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-y">
-            <div class="ar-icon">📣</div>
-            <div class="ar-info">
-              <div class="ar-name">Lista de Espera Frio ABO</div>
-              <div class="ar-sub">Lead · Prospecção fria — CPL R$17,61 histórico</div>
-            </div>
-            <div class="ar-budget" style="color:var(--gold)">R$400/dia</div>
-            <div class="ar-kpi">CPL ~R$18<br>~22 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--gold);width:40%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">20% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-r">
-            <div class="ar-icon">🚫</div>
-            <div class="ar-info">
-              <div class="ar-name">WhatsApp / Alcance Lembrete / Visita Perfil</div>
-              <div class="ar-sub">CPA R$3.204 — ROI negativo — sem conversão</div>
-            </div>
-            <div class="ar-budget" style="color:var(--red)">R$0/dia</div>
-            <div class="ar-kpi" style="color:var(--red)">PAUSAR<br>tudo</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--red);width:5%"></div></div>
-              <div style="font-size:9px;color:var(--red);margin-top:3px">Eliminar</div>
-            </div>
-          </div>
-
-          <!-- GOOGLE -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:12px 0 6px">Google Ads — R$1.000/dia (33%)</div>
-
-          <div class="alloc-row highlight-g">
-            <div class="ar-icon">🗺️</div>
-            <div class="ar-info">
-              <div class="ar-name">PMax Sudeste (escalar) + criar PMax Sul</div>
-              <div class="ar-sub">Google PMax · CPL R$16,76 comprovado · regiões SP/RJ/MG/RS/PR</div>
-            </div>
-            <div class="ar-budget" style="color:var(--g)">R$500/dia</div>
-            <div class="ar-kpi">CPL ~R$17<br>~30 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--g);width:50%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">50% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-g">
-            <div class="ar-icon">🔍</div>
-            <div class="ar-info">
-              <div class="ar-name">Search Checkout + Search Lista Espera</div>
-              <div class="ar-sub">Google Search · Alta intenção · CTR 13–16%</div>
-            </div>
-            <div class="ar-budget" style="color:var(--g)">R$300/dia</div>
-            <div class="ar-kpi">CPC ~R$3,40<br>~12 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--g);width:30%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">30% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-y">
-            <div class="ar-icon">📊</div>
-            <div class="ar-info">
-              <div class="ar-name">PMax Lead Comercial Principal</div>
-              <div class="ar-sub">Google PMax · 158 conv histórico · CPL R$28,43</div>
-            </div>
-            <div class="ar-budget" style="color:var(--gold)">R$200/dia</div>
-            <div class="ar-kpi">CPL ~R$28<br>~7 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--gold);width:20%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">20% do Google</div>
-            </div>
-          </div>
-
+        <div class="group-lbl">Meta Ads — <b>R$2.000/dia (67%)</b></div>
+        <div class="row top">
+          <div class="r-ico">⭐</div>
+          <div><div class="r-name">Formulário TesteCriativo + Formulário Principal</div><div class="r-sub">Lead · ABO · Quente · Instant Form — TOP performers da conta</div></div>
+          <div class="r-bud">R$700/dia</div>
+          <div class="r-kpi">CPL ~R$10<br>~70 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:70%"></div></div><div class="r-pct">35% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🛒</div>
+          <div><div class="r-name">Advantage CBO Venda Checkout Teste04</div><div class="r-sub">Venda · CBO · Advantage+ — melhor CPA da conta (R$178)</div></div>
+          <div class="r-bud">R$600/dia</div>
+          <div class="r-kpi">CPA ~R$180<br>~3,3 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:60%"></div></div><div class="r-pct">30% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔁</div>
+          <div><div class="r-name">Remarketing Checkout — CRIAR AGORA</div><div class="r-sub">Custom Audience "Iniciou checkout 7d" — 269 pessoas prontas para comprar</div></div>
+          <div class="r-bud">R$300/dia</div>
+          <div class="r-kpi">CPA est. ~R$120<br>~2,5 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:30%"></div></div><div class="r-pct">15% do Meta</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">🌍</div>
+          <div><div class="r-name">Lista de Espera Frio ABO</div><div class="r-sub">Lead · Prospecção fria — CPL R$17,61 histórico comprovado</div></div>
+          <div class="r-bud">R$400/dia</div>
+          <div class="r-kpi">CPL ~R$18<br>~22 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:40%"></div></div><div class="r-pct">20% do Meta</div></div>
+        </div>
+        <div class="row cut">
+          <div class="r-ico">🚫</div>
+          <div><div class="r-name">WhatsApp + Alcance Lembrete + Visita Perfil</div><div class="r-sub">CPA R$3.204 · 1 venda em 30 dias · ROI completamente negativo</div></div>
+          <div class="r-bud cut">R$0/dia</div>
+          <div class="r-kpi" style="color:var(--red)">PAUSAR<br>imediatamente</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill red" style="width:3%"></div></div><div class="r-pct" style="color:var(--red)">Eliminar</div></div>
+        </div>
+        <div class="group-lbl" style="margin-top:14px">Google Ads — <b>R$1.000/dia (33%)</b></div>
+        <div class="row top">
+          <div class="r-ico">🗺️</div>
+          <div><div class="r-name">PMax Sudeste (escalar) + PMax Sul (novo)</div><div class="r-sub">CPL R$16,76 comprovado · cobrir SP/RJ/MG/RS/PR</div></div>
+          <div class="r-bud">R$500/dia</div>
+          <div class="r-kpi">CPL ~R$17<br>~30 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:50%"></div></div><div class="r-pct">50% do Google</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔍</div>
+          <div><div class="r-name">Search Checkout + Search Lista de Espera</div><div class="r-sub">Alta intenção · CTR 13–16% histórico · keywords de compra</div></div>
+          <div class="r-bud">R$300/dia</div>
+          <div class="r-kpi">CPC ~R$3,40<br>~12 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:30%"></div></div><div class="r-pct">30% do Google</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">📊</div>
+          <div><div class="r-name">PMax Lead Comercial Principal</div><div class="r-sub">158 conversões históricas · CPL R$28,43 · manter ativo</div></div>
+          <div class="r-bud">R$200/dia</div>
+          <div class="r-kpi">CPL ~R$28<br>~7 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:20%"></div></div><div class="r-pct">20% do Google</div></div>
         </div>
       </div>
-
-      <!-- Projection -->
-      <div class="projection">
-        <div class="proj-label">Projeção 50 dias</div>
-        <div class="proj-track"><div class="proj-fill" style="background:linear-gradient(to right,var(--g3),var(--g));width:41%"></div></div>
-        <div>
-          <div class="proj-val" style="color:var(--g)">~380 vendas</div>
-          <div class="proj-sub">41% da meta · <strong style="color:var(--red)">Insuficiente sozinho</strong></div>
-        </div>
+      <div class="proj">
+        <div class="proj-lbl">Projeção 50 dias</div>
+        <div class="proj-track"><div class="proj-fill" style="width:41%"></div></div>
+        <div class="proj-nums"><div class="pv">~380 vendas</div><div class="ps red">41% da meta · exige complemento orgânico</div></div>
       </div>
-
-      <div class="sc-insights">
-        <div class="si-item">
-          <div class="si-icon">⚡</div>
-          <div class="si-title">Foco Cirúrgico</div>
-          <div class="si-body">Sem dispersão. Apenas os 3 canais com ROI comprovado recebem budget. Zero experimentos novos.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">⚠️</div>
-          <div class="si-title">Limitação Principal</div>
-          <div class="si-body">Com R$3K/dia, a projeção máxima é ~380 vendas em 50 dias — 41% da meta de 931. Será necessário complementar com vendas orgânicas e ações offline.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">🎯</div>
-          <div class="si-title">Quando Usar</div>
-          <div class="si-body">Se o caixa for limitado. Combine com lista de leads existente, parceria com afiliados ou ação de indicação para fechar a diferença.</div>
-        </div>
+      <div class="si-strip">
+        <div class="si"><div class="si-ico">⚡</div><div class="si-t">Foco Cirúrgico</div><div class="si-b">Sem dispersão. Apenas os 3 canais com ROI comprovado recebem budget. Zero experimentos. Máxima eficiência por real investido.</div></div>
+        <div class="si"><div class="si-ico">⚠️</div><div class="si-t">Limitação Principal</div><div class="si-b">~380 vendas em 50 dias = 41% da meta. Necessário complementar com ações na base de leads orgânicos e parceiros/afiliados.</div></div>
+        <div class="si"><div class="si-ico">🎯</div><div class="si-t">Quando Usar</div><div class="si-b">Se o caixa for restrito. Combine com acionamento da base de leads existente e campanha de indicação para fechar as ~550 vendas restantes.</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════ CENÁRIO 2 · R$4K ══════════════ -->
-  <div class="sec-label">Cenário 02 — Recomendado</div>
-  <div class="scenario s4k open" id="sc4k">
-    <div class="sc-header" onclick="toggle('sc4k')">
+  <!-- CENÁRIO 2 -->
+  <div class="sec">Cenário 02 — Recomendado ★</div>
+  <div class="sc s2 open" id="sc2">
+    <div class="sc-hdr" onclick="tog('sc2')">
       <div class="sc-left">
-        <div class="sc-budget">R$4K</div>
-        <div class="sc-info">
-          <div class="sc-tag">Cenário 02 · Recomendado ★</div>
-          <div class="sc-name">Equilíbrio entre Escala e Controle</div>
-          <div class="sc-desc">Máxima cobertura com custo controlado. Expande canais top e testa novos públicos regionais.</div>
+        <div class="sc-valor">R$4K</div>
+        <div>
+          <div class="sc-badge">Cenário 02 · Recomendado ★</div>
+          <div class="sc-nome">Equilíbrio entre Escala e Controle</div>
+          <div class="sc-desc">Máxima cobertura com custo controlado. Expande canais top e inclui novos públicos regionais.</div>
         </div>
       </div>
       <div class="sc-kpis">
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--blue)">~960</div>
-          <div class="kl">Leads/mês est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--blue)">~620</div>
-          <div class="kl">Vendas/50 dias est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--gold)">67%</div>
-          <div class="kl">Meta atingida</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--blue)">R$323</div>
-          <div class="kl">Custo por venda</div>
-        </div>
+        <div class="sc-kpi"><div class="kv">~620</div><div class="kl">Vendas/50d</div></div>
+        <div class="sc-kpi"><div class="kv yellow">67%</div><div class="kl">da Meta</div></div>
+        <div class="sc-kpi"><div class="kv white">R$323</div><div class="kl">Custo/venda</div></div>
+        <div class="sc-kpi"><div class="kv">~960</div><div class="kl">Leads/mês</div></div>
       </div>
-      <div class="sc-expand">▼</div>
+      <div class="sc-toggle">▼</div>
     </div>
-
     <div class="sc-body">
-      <div class="alloc-wrap">
+      <div class="alloc">
         <div class="alloc-title">Distribuição Diária — R$4.000/dia</div>
-        <div class="alloc-grid">
-
-          <!-- META -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:4px 0 6px">Meta Ads — R$2.700/dia (67,5%)</div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">⭐</div>
-            <div class="ar-info">
-              <div class="ar-name">Formulários (TesteCriativo + Principal + 2 variações novas)</div>
-              <div class="ar-sub">Lead · ABO · Quente · Instant Form — 4 criativos simultâneos</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$900/dia</div>
-            <div class="ar-kpi">CPL ~R$10<br>~90 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:67%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">33% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">🛒</div>
-            <div class="ar-info">
-              <div class="ar-name">Advantage CBO Venda + Venda Quente ABO</div>
-              <div class="ar-sub">2 campanhas de venda simultâneas · CPAs R$178 e R$188</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$800/dia</div>
-            <div class="ar-kpi">CPA ~R$183<br>~4,4 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:60%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">30% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">🔁</div>
-            <div class="ar-info">
-              <div class="ar-name">Remarketing Checkout + Remarketing Visitantes (NOVO)</div>
-              <div class="ar-sub">Custom Audiences: Checkout 7d + Visitantes site 14d</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$500/dia</div>
-            <div class="ar-kpi">CPA est. ~R$110<br>~4,5 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:37%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">18,5% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">🌍</div>
-            <div class="ar-info">
-              <div class="ar-name">Lead Frio Teste03 + Lead Frio Geo (Sudeste/Sul)</div>
-              <div class="ar-sub">Prospecção fria segmentada — CPL R$23,83 histórico + geo novo</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$500/dia</div>
-            <div class="ar-kpi">CPL ~R$22<br>~23 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:37%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">18,5% do Meta</div>
-            </div>
-          </div>
-
-          <!-- GOOGLE -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:12px 0 6px">Google Ads — R$1.300/dia (32,5%)</div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">🗺️</div>
-            <div class="ar-info">
-              <div class="ar-name">PMax Sudeste + PMax Sul + PMax Centro-Oeste (escalar)</div>
-              <div class="ar-sub">3 PMax regionais · CPL base R$16,76 · cobrir +70% do BR</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$700/dia</div>
-            <div class="ar-kpi">CPL ~R$20<br>~35 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:54%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">54% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-b">
-            <div class="ar-icon">🔍</div>
-            <div class="ar-info">
-              <div class="ar-name">Search Checkout + Search Lista Espera + Search Urgência</div>
-              <div class="ar-sub">Novas keywords: "último lote SDA", "ingresso SDA 2026" etc.</div>
-            </div>
-            <div class="ar-budget" style="color:var(--blue)">R$400/dia</div>
-            <div class="ar-kpi">CPC ~R$3,50<br>~15 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--blue);width:31%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">31% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-y">
-            <div class="ar-icon">📊</div>
-            <div class="ar-info">
-              <div class="ar-name">PMax Lead Comercial Principal + Display RMKT</div>
-              <div class="ar-sub">Reativar Display RMKT pausado — CPM R$9,65 (muito barato)</div>
-            </div>
-            <div class="ar-budget" style="color:var(--gold)">R$200/dia</div>
-            <div class="ar-kpi">CPL ~R$25<br>~8 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--gold);width:15%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">15% do Google</div>
-            </div>
-          </div>
-
+        <div class="group-lbl">Meta Ads — <b>R$2.700/dia (67,5%)</b></div>
+        <div class="row top">
+          <div class="r-ico">⭐</div>
+          <div><div class="r-name">Formulários (TesteCriativo + Principal + 2 variações novas)</div><div class="r-sub">Lead · ABO · Quente · 4 criativos simultâneos · Instant Form</div></div>
+          <div class="r-bud">R$900/dia</div>
+          <div class="r-kpi">CPL ~R$10<br>~90 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:67%"></div></div><div class="r-pct">33% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🛒</div>
+          <div><div class="r-name">Advantage CBO + Venda Quente ABO (2 campanhas simultâneas)</div><div class="r-sub">CPA R$178 e R$188 — melhores campanhas de venda da conta</div></div>
+          <div class="r-bud">R$800/dia</div>
+          <div class="r-kpi">CPA ~R$183<br>~4,4 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:59%"></div></div><div class="r-pct">30% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔁</div>
+          <div><div class="r-name">Remarketing Checkout + Remarketing Visitantes Site 14d</div><div class="r-sub">2 audiências quentes · mensagem específica por estágio do funil</div></div>
+          <div class="r-bud">R$500/dia</div>
+          <div class="r-kpi">CPA est. ~R$110<br>~4,5 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:37%"></div></div><div class="r-pct">18,5% do Meta</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">🌍</div>
+          <div><div class="r-name">Lead Frio Teste03 + Lead Frio Geo (Sudeste/Sul)</div><div class="r-sub">Prospecção fria segmentada por região — CPL R$23,83 histórico</div></div>
+          <div class="r-bud">R$500/dia</div>
+          <div class="r-kpi">CPL ~R$22<br>~23 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:37%"></div></div><div class="r-pct">18,5% do Meta</div></div>
+        </div>
+        <div class="group-lbl" style="margin-top:14px">Google Ads — <b>R$1.300/dia (32,5%)</b></div>
+        <div class="row top">
+          <div class="r-ico">🗺️</div>
+          <div><div class="r-name">PMax Sudeste + PMax Sul + PMax Centro-Oeste (3 regionais)</div><div class="r-sub">CPL base R$16,76 · cobrir +70% do território nacional</div></div>
+          <div class="r-bud">R$700/dia</div>
+          <div class="r-kpi">CPL ~R$20<br>~35 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:54%"></div></div><div class="r-pct">54% do Google</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔍</div>
+          <div><div class="r-name">Search Checkout + Lista de Espera + keywords de urgência</div><div class="r-sub">Incluir: "último lote SDA", "ingresso SDA 2026", "SDA ao vivo"</div></div>
+          <div class="r-bud">R$400/dia</div>
+          <div class="r-kpi">CPC ~R$3,50<br>~15 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:31%"></div></div><div class="r-pct">31% do Google</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">📊</div>
+          <div><div class="r-name">PMax Lead Comercial + Display RMKT (reativar pausado)</div><div class="r-sub">Display pausado tem CPM R$9,65 — excelente para remarketing barato</div></div>
+          <div class="r-bud">R$200/dia</div>
+          <div class="r-kpi">CPL ~R$25<br>~8 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:15%"></div></div><div class="r-pct">15% do Google</div></div>
         </div>
       </div>
-
-      <div class="projection">
-        <div class="proj-label">Projeção 50 dias</div>
-        <div class="proj-track"><div class="proj-fill" style="background:linear-gradient(to right,#1a4a7a,var(--blue));width:67%"></div></div>
-        <div>
-          <div class="proj-val" style="color:var(--blue)">~620 vendas</div>
-          <div class="proj-sub">67% da meta · <strong style="color:var(--gold)">Complementar com base existente</strong></div>
-        </div>
+      <div class="proj">
+        <div class="proj-lbl">Projeção 50 dias</div>
+        <div class="proj-track"><div class="proj-fill" style="width:67%"></div></div>
+        <div class="proj-nums"><div class="pv">~620 vendas</div><div class="ps yellow">67% da meta · complementar com base de leads existente</div></div>
       </div>
-
-      <div class="sc-insights">
-        <div class="si-item">
-          <div class="si-icon">🏆</div>
-          <div class="si-title">Por que é o Recomendado</div>
-          <div class="si-body">Melhor custo-benefício. Cada R$1 investido gera máximo retorno em conversão com mínimo de desperdício. 67% da meta via tráfego pago.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">📈</div>
-          <div class="si-title">Diferencial vs R$3K</div>
-          <div class="si-body">+R$1K/dia compra mais 240 vendas estimadas. ROI do R$1K extra: ~R$41/venda — altamente rentável se o ingresso custar acima de R$200.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">📋</div>
-          <div class="si-title">O que Fazer com os 33% restantes</div>
-          <div class="si-body">Acionar base de leads orgânicos, email/WhatsApp da lista existente e parceria com influenciadores para fechar as ~310 vendas restantes sem custo de mídia.</div>
-        </div>
+      <div class="si-strip">
+        <div class="si"><div class="si-ico">🏆</div><div class="si-t">Por que é o Recomendado</div><div class="si-b">Melhor custo-benefício. O R$1K extra vs R$3K compra ~240 vendas adicionais a apenas R$41/venda — altamente rentável.</div></div>
+        <div class="si"><div class="si-ico">📈</div><div class="si-t">Diferencial vs R$3K</div><div class="si-b">+R$1K/dia = +240 vendas estimadas. Se o ingresso custar R$300+, cada R$1K/dia a mais retorna R$3 em receita por R$1 investido.</div></div>
+        <div class="si"><div class="si-ico">📋</div><div class="si-t">Fechar os 33% restantes</div><div class="si-b">Acionar base de leads por email/WhatsApp e parceria com influenciadores para fechar as ~311 vendas sem custo adicional de mídia.</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════ CENÁRIO 3 · R$5K ══════════════ -->
-  <div class="sec-label">Cenário 03 — Agressivo</div>
-  <div class="scenario s5k" id="sc5k">
-    <div class="sc-header" onclick="toggle('sc5k')">
+  <!-- CENÁRIO 3 -->
+  <div class="sec">Cenário 03 — Agressivo</div>
+  <div class="sc s3" id="sc3">
+    <div class="sc-hdr" onclick="tog('sc3')">
       <div class="sc-left">
-        <div class="sc-budget">R$5K</div>
-        <div class="sc-info">
-          <div class="sc-tag">Cenário 03 · Agressivo</div>
-          <div class="sc-name">Cobertura Total — Bater a Meta Só de Tráfego Pago</div>
-          <div class="sc-desc">Escala máxima em todos os canais. Testa novos públicos e formatos. Meta batível somente via paid.</div>
+        <div class="sc-valor">R$5K</div>
+        <div>
+          <div class="sc-badge">Cenário 03 · Agressivo</div>
+          <div class="sc-nome">Bater a Meta Somente com Tráfego Pago</div>
+          <div class="sc-desc">Cobertura nacional completa. Funil inteiro ativo. Meta batível só de paid media.</div>
         </div>
       </div>
       <div class="sc-kpis">
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--purple)">~1.320</div>
-          <div class="kl">Leads/mês est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--purple)">~980</div>
-          <div class="kl">Vendas/50 dias est.</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--g)">105%</div>
-          <div class="kl">Meta atingida</div>
-        </div>
-        <div class="sc-kpi">
-          <div class="kv" style="color:var(--purple)">R$255</div>
-          <div class="kl">Custo por venda</div>
-        </div>
+        <div class="sc-kpi"><div class="kv">~980</div><div class="kl">Vendas/50d</div></div>
+        <div class="sc-kpi"><div class="kv">105%</div><div class="kl">da Meta ✅</div></div>
+        <div class="sc-kpi"><div class="kv white">R$255</div><div class="kl">Custo/venda</div></div>
+        <div class="sc-kpi"><div class="kv">~1.320</div><div class="kl">Leads/mês</div></div>
       </div>
-      <div class="sc-expand">▼</div>
+      <div class="sc-toggle">▼</div>
     </div>
-
     <div class="sc-body">
-      <div class="alloc-wrap">
+      <div class="alloc">
         <div class="alloc-title">Distribuição Diária — R$5.000/dia</div>
-        <div class="alloc-grid">
-
-          <!-- META -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:4px 0 6px">Meta Ads — R$3.300/dia (66%)</div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">⭐</div>
-            <div class="ar-info">
-              <div class="ar-name">Formulários (5 variações criativas) + A/B test</div>
-              <div class="ar-sub">Lead · ABO + CBO · Quente + Frio · Inst. Form. · Advantage+</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$1.100/dia</div>
-            <div class="ar-kpi">CPL ~R$10<br>~110 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:67%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">33% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">🛒</div>
-            <div class="ar-info">
-              <div class="ar-name">Advantage CBO + Venda Quente ABO + nova campanha Lookalike Compradores</div>
-              <div class="ar-sub">3 campanhas de venda · LAL 1% compradores anteriores (novo público)</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$1.000/dia</div>
-            <div class="ar-kpi">CPA ~R$175<br>~5,7 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:60%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">30% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">🔁</div>
-            <div class="ar-info">
-              <div class="ar-name">Remarketing Full-Funnel (Checkout + Visitantes + Engajados)</div>
-              <div class="ar-sub">3 audiências quentes · mensagens de urgência customizadas por estágio</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$700/dia</div>
-            <div class="ar-kpi">CPA est. ~R$100<br>~7 vendas/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:42%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">21% do Meta</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">🌍</div>
-            <div class="ar-info">
-              <div class="ar-name">Lead Frio Geo Nacional + LAL 2–5% Compradores</div>
-              <div class="ar-sub">Prospecção fria nacional com LAL de qualidade + interesses comportamentais</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$500/dia</div>
-            <div class="ar-kpi">CPL ~R$20<br>~25 leads/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:30%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">15% do Meta</div>
-            </div>
-          </div>
-
-          <!-- GOOGLE -->
-          <div style="font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;padding:12px 0 6px">Google Ads — R$1.700/dia (34%)</div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">🗺️</div>
-            <div class="ar-info">
-              <div class="ar-name">PMax Nacional (5 campanhas regionais: SE/S/CO/NE/N)</div>
-              <div class="ar-sub">Cobertura nacional completa · assets por região · CPL escalado</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$1.000/dia</div>
-            <div class="ar-kpi">CPL ~R$22<br>~45 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:59%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">59% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-p">
-            <div class="ar-icon">🔍</div>
-            <div class="ar-info">
-              <div class="ar-name">Search Completo (Checkout + Lista Espera + Brand + Urgência)</div>
-              <div class="ar-sub">4 grupos · keywords de alta intenção + brand protection</div>
-            </div>
-            <div class="ar-budget" style="color:var(--purple)">R$500/dia</div>
-            <div class="ar-kpi">CPC ~R$3,50<br>~20 conv/dia</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--purple);width:29%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">29% do Google</div>
-            </div>
-          </div>
-
-          <div class="alloc-row highlight-y">
-            <div class="ar-icon">🎥</div>
-            <div class="ar-info">
-              <div class="ar-name">YouTube Skippable (Casos de Sucesso 30s) + Display RMKT</div>
-              <div class="ar-sub">Reativar YouTube com novo criativo + Display para quem visitou o checkout</div>
-            </div>
-            <div class="ar-budget" style="color:var(--gold)">R$200/dia</div>
-            <div class="ar-kpi">CPV ~R$0,08<br>Alcance awareness</div>
-            <div class="ar-bar">
-              <div class="ar-bar-track"><div class="ar-bar-fill" style="background:var(--gold);width:12%"></div></div>
-              <div style="font-size:9px;color:var(--muted);margin-top:3px">12% do Google</div>
-            </div>
-          </div>
-
+        <div class="group-lbl">Meta Ads — <b>R$3.300/dia (66%)</b></div>
+        <div class="row top">
+          <div class="r-ico">⭐</div>
+          <div><div class="r-name">Formulários (5 variações criativas) + A/B test contínuo</div><div class="r-sub">Lead · ABO + CBO · Quente + Frio · Instant Form · Advantage+ Creative</div></div>
+          <div class="r-bud">R$1.100/dia</div>
+          <div class="r-kpi">CPL ~R$10<br>~110 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:67%"></div></div><div class="r-pct">33% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🛒</div>
+          <div><div class="r-name">Advantage CBO + Venda Quente ABO + LAL 1% Compradores (novo)</div><div class="r-sub">3 campanhas de venda · LAL de compradores anteriores = público mais qualificado</div></div>
+          <div class="r-bud">R$1.000/dia</div>
+          <div class="r-kpi">CPA ~R$175<br>~5,7 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:60%"></div></div><div class="r-pct">30% do Meta</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔁</div>
+          <div><div class="r-name">Remarketing Full-Funnel: Checkout + Visitantes + Engajados 30d</div><div class="r-sub">3 audiências com mensagens de urgência customizadas por estágio</div></div>
+          <div class="r-bud">R$700/dia</div>
+          <div class="r-kpi">CPA est. ~R$100<br>~7 vendas/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:42%"></div></div><div class="r-pct">21% do Meta</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">🌍</div>
+          <div><div class="r-name">Lead Frio Geo Nacional + LAL 2–5% Compradores</div><div class="r-sub">Prospecção fria em escala nacional com lookalike de qualidade</div></div>
+          <div class="r-bud">R$500/dia</div>
+          <div class="r-kpi">CPL ~R$20<br>~25 leads/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:30%"></div></div><div class="r-pct">15% do Meta</div></div>
+        </div>
+        <div class="group-lbl" style="margin-top:14px">Google Ads — <b>R$1.700/dia (34%)</b></div>
+        <div class="row top">
+          <div class="r-ico">🗺️</div>
+          <div><div class="r-name">5 PMax Regionais: Sudeste / Sul / Centro-Oeste / Nordeste / Norte</div><div class="r-sub">Cobertura nacional completa · assets adaptados por região</div></div>
+          <div class="r-bud">R$1.000/dia</div>
+          <div class="r-kpi">CPL ~R$22<br>~45 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:59%"></div></div><div class="r-pct">59% do Google</div></div>
+        </div>
+        <div class="row top">
+          <div class="r-ico">🔍</div>
+          <div><div class="r-name">Search Completo: Checkout + Lista Espera + Brand + Urgência</div><div class="r-sub">4 grupos · brand protection + keywords de alta intenção</div></div>
+          <div class="r-bud">R$500/dia</div>
+          <div class="r-kpi">CPC ~R$3,50<br>~20 conv/dia</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill" style="width:29%"></div></div><div class="r-pct">29% do Google</div></div>
+        </div>
+        <div class="row mid">
+          <div class="r-ico">🎥</div>
+          <div><div class="r-name">YouTube Skippable (casos de sucesso 30s) + Display RMKT</div><div class="r-sub">Novo criativo YouTube · CPV target R$0,08 · Display para visitantes checkout</div></div>
+          <div class="r-bud">R$200/dia</div>
+          <div class="r-kpi">CPV ~R$0,08<br>Alcance awareness</div>
+          <div><div class="r-bar-track"><div class="r-bar-fill dim" style="width:12%"></div></div><div class="r-pct">12% do Google</div></div>
         </div>
       </div>
-
-      <div class="projection">
-        <div class="proj-label">Projeção 50 dias</div>
-        <div class="proj-track"><div class="proj-fill" style="background:linear-gradient(to right,#4a1a7a,var(--purple));width:100%"></div></div>
-        <div>
-          <div class="proj-val" style="color:var(--purple)">~980 vendas</div>
-          <div class="proj-sub">105% da meta · <strong style="color:var(--g)">Meta superada somente com tráfego pago ✅</strong></div>
-        </div>
+      <div class="proj">
+        <div class="proj-lbl">Projeção 50 dias</div>
+        <div class="proj-track"><div class="proj-fill full" style="width:100%"></div></div>
+        <div class="proj-nums"><div class="pv">~980 vendas</div><div class="ps green">105% da meta · superada somente com tráfego pago ✅</div></div>
       </div>
-
-      <div class="sc-insights">
-        <div class="si-item">
-          <div class="si-icon">🚀</div>
-          <div class="si-title">Máxima Cobertura</div>
-          <div class="si-body">Com R$5K/dia o funil fica completo: topo (YouTube/awareness), meio (leads) e fundo (venda direta + remarketing). Cada real tem destino claro.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">📊</div>
-          <div class="si-title">ROI do R$5K vs R$3K</div>
-          <div class="si-body">R$2K/dia a mais gera +600 vendas estimadas em 50 dias. Se o ingresso custar R$500+, cada R$1K investido a mais retorna ~R$3K em receita.</div>
-        </div>
-        <div class="si-item">
-          <div class="si-icon">⚠️</div>
-          <div class="si-title">Risco: Saturação de Audiência</div>
-          <div class="si-body">Com R$5K/dia para uma audiência de ~582K, a frequência pode atingir 8–10x em 30 dias. Exige rotação semanal obrigatória de criativos.</div>
-        </div>
+      <div class="si-strip">
+        <div class="si"><div class="si-ico">🚀</div><div class="si-t">Cobertura Total</div><div class="si-b">Funil completo: awareness (YouTube), consideração (leads) e conversão (venda + remarketing). Cada etapa com budget e mensagem dedicados.</div></div>
+        <div class="si"><div class="si-ico">📊</div><div class="si-t">ROI do R$5K vs R$3K</div><div class="si-b">R$2K/dia a mais = +600 vendas estimadas em 50 dias. Se o ingresso custar R$500+, cada R$1K/dia retorna ~R$3K em receita líquida adicional.</div></div>
+        <div class="si"><div class="si-ico">⚠️</div><div class="si-t">Atenção: Saturação</div><div class="si-b">Com R$5K/dia para 582K pessoas, a frequência pode atingir 8–10x em 30 dias. Exige rotação semanal obrigatória de criativos.</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════ COMPARATIVO FINAL ══════ -->
-  <div class="sec-label">Comparativo dos 3 Cenários</div>
-  <div class="comparison">
+  <!-- COMPARATIVO -->
+  <div class="sec">Comparativo dos 3 Cenários</div>
+  <div class="comp">
     <div class="comp-head">
       <div>Métrica</div>
-      <div class="h3k">R$3K/dia</div>
-      <div class="h4k">R$4K/dia ★</div>
-      <div class="h5k">R$5K/dia</div>
+      <div class="c1">R$3K/dia</div>
+      <div class="c2">R$4K/dia ★</div>
+      <div class="c3">R$5K/dia</div>
     </div>
-    <div class="comp-row">
-      <div class="metric">Investimento total 50 dias</div>
-      <div class="v3k">R$150.000</div>
-      <div class="v4k">R$200.000</div>
-      <div class="v5k">R$250.000</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Vendas estimadas</div>
-      <div class="v3k">~380</div>
-      <div class="v4k">~620</div>
-      <div class="v5k">~980</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">% da meta (931) atingida</div>
-      <div class="v3k" style="color:var(--red)">41%</div>
-      <div class="v4k" style="color:var(--gold)">67%</div>
-      <div class="v5k" style="color:var(--g)">105% ✅</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Custo médio por venda</div>
-      <div class="v3k">R$395</div>
-      <div class="v4k">R$323</div>
-      <div class="v5k">R$255</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Leads/mês estimados</div>
-      <div class="v3k">~720</div>
-      <div class="v4k">~960</div>
-      <div class="v5k">~1.320</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Campanhas Meta ativas</div>
-      <div class="v3k">4</div>
-      <div class="v4k">6</div>
-      <div class="v5k">8</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Campanhas Google ativas</div>
-      <div class="v3k">3</div>
-      <div class="v4k">4</div>
-      <div class="v5k">6</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Cobertura geográfica</div>
-      <div class="v3k">SE + Sul</div>
-      <div class="v4k">SE + Sul + CO</div>
-      <div class="v5k">Nacional</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Remarketing checkout ativo</div>
-      <div class="v3k" style="color:var(--g)">✅ Sim</div>
-      <div class="v4k" style="color:var(--g)">✅ Sim</div>
-      <div class="v5k" style="color:var(--g)">✅ Full-Funnel</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">YouTube/Awareness</div>
-      <div class="v3k" style="color:var(--red)">❌ Não</div>
-      <div class="v4k" style="color:var(--red)">❌ Não</div>
-      <div class="v5k" style="color:var(--g)">✅ Sim</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Necessita ações orgânicas</div>
-      <div class="v3k" style="color:var(--red)">Sim (urgente)</div>
-      <div class="v4k" style="color:var(--gold)">Sim (moderado)</div>
-      <div class="v5k" style="color:var(--g)">Não obrigatório</div>
-    </div>
-    <div class="comp-row">
-      <div class="metric">Risco de saturação</div>
-      <div class="v3k" style="color:var(--g)">Baixo</div>
-      <div class="v4k" style="color:var(--gold)">Médio</div>
-      <div class="v5k" style="color:var(--red)">Alto (exige rotação)</div>
+    <div class="comp-row"><div>Investimento total 50 dias</div><div>R$150.000</div><div>R$200.000</div><div>R$250.000</div></div>
+    <div class="comp-row"><div>Vendas estimadas</div><div>~380</div><div>~620</div><div class="g">~980</div></div>
+    <div class="comp-row"><div>% da meta (931 ingressos)</div><div class="r">41% ✗</div><div class="y">67% ~</div><div class="g">105% ✓</div></div>
+    <div class="comp-row"><div>Custo médio por venda</div><div>R$395</div><div>R$323</div><div class="g">R$255</div></div>
+    <div class="comp-row"><div>Leads/mês estimados</div><div>~720</div><div>~960</div><div>~1.320</div></div>
+    <div class="comp-row"><div>Campanhas Meta ativas</div><div>4</div><div>6</div><div>8</div></div>
+    <div class="comp-row"><div>Campanhas Google ativas</div><div>3</div><div>4</div><div>6</div></div>
+    <div class="comp-row"><div>Cobertura geográfica</div><div>SE + Sul</div><div>SE + Sul + CO</div><div class="g">Nacional</div></div>
+    <div class="comp-row"><div>Remarketing checkout ativo</div><div class="g">✅ Sim</div><div class="g">✅ Sim</div><div class="g">✅ Full-Funnel</div></div>
+    <div class="comp-row"><div>YouTube / Awareness</div><div class="r">❌ Não</div><div class="r">❌ Não</div><div class="g">✅ Sim</div></div>
+    <div class="comp-row"><div>Depende de ações orgânicas</div><div class="r">Urgente</div><div class="y">Moderado</div><div class="g">Não obrigatório</div></div>
+    <div class="comp-row"><div>Risco saturação de audiência</div><div class="g">Baixo</div><div class="y">Médio</div><div class="r">Alto (rotação semanal)</div></div>
+  </div>
+
+  <div class="rec">
+    <div class="rec-ico">💡</div>
+    <div>
+      <div class="rec-t">Recomendação: Iniciar com R$4K e escalar para R$5K na semana 3</div>
+      <div class="rec-b">Comece com R$4K/dia para validar o remarketing de checkout e os novos PMax regionais. Se nas primeiras 2 semanas o CPA de venda ficar abaixo de R$280, escale para R$5K/dia. Em qualquer cenário, a ação mais urgente é <strong>criar o remarketing de checkout imediatamente</strong> — 269 pessoas já iniciaram a compra sem nenhuma campanha ativa. Independente do cenário, <span class="danger">pause o WhatsApp hoje</span> e redirecione para formulários (CPL R$7,71 vs R$801 atual).</div>
     </div>
   </div>
 
-  <!-- RECOMENDAÇÃO -->
-  <div class="rec-box">
-    <div class="rec-icon">💡</div>
-    <div class="rec-content">
-      <div class="rec-title">Recomendação: Começar com R$4K, escalar para R$5K na semana 3</div>
-      <div class="rec-body">
-        Inicie com R$4K/dia para validar o remarketing de checkout e os novos PMax regionais. Se nas primeiras 2 semanas o CPA de venda ficar abaixo de R$280, escale para R$5K/dia. 
-        Nos 3 cenários, a ação mais urgente e rentável é <strong style="color:var(--g)">criar o remarketing de checkout imediatamente</strong> — 269 pessoas já estão prontas para comprar e não há campanha ativa atingindo-as.
-        Independente do cenário escolhido, <strong style="color:var(--red)">pause o WhatsApp hoje</strong> e redirecione esse budget para formulários (CPL de R$7,71 vs R$801).
-      </div>
+  <div class="sec">Cronograma de Execução — 50 dias</div>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-per"><div class="pr">Dias 1–7</div><div class="pl">Semana 1</div></div>
+      <div class="tl-con"><div class="ct">🔧 Estrutura: Pausar, Criar, Redirecionar</div><div class="cb">Pausar WhatsApp e campanhas sem conversão. Criar Remarketing Checkout (audiência já existe). Escalar Formulário TesteCriativo para o budget definido. Criar 2 PMax regionais no Google. Lançar 3 variações criativas de urgência.</div></div>
     </div>
-  </div>
-
-  <!-- CRONOGRAMA -->
-  <div class="sec-label" style="margin-top:32px">Cronograma de Execução — 50 dias</div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-period">
-        <div class="tp-range">Dias 1–7</div>
-        <div class="tp-label">Semana 1</div>
-      </div>
-      <div class="tl-content">
-        <div class="tc-title">🔧 Estrutura: Pausar, Criar, Redirecionar</div>
-        <div class="tc-body">
-          Pausar WhatsApp e campanhas sem conversão. Criar campanha Remarketing Checkout (audiência já existe). Escalar Formulário TesteCriativo para o budget definido. Criar 2 PMax regionais no Google. Lançar 3 variações criativas novas de urgência ("X dias, Y vagas").
-        </div>
-      </div>
+    <div class="tl-row">
+      <div class="tl-per"><div class="pr">Dias 8–21</div><div class="pl">Semanas 2–3</div></div>
+      <div class="tl-con"><div class="ct">📊 Otimização: Cortar o que não funciona, dobrar o que funciona</div><div class="cb">Analisar CPL e CPA por criativo semanalmente. Pausar qualquer anúncio com CPL 2× acima da meta. Testar LAL 1–2% de compradores. Avaliar escalar para o próximo cenário. Renovar criativos para evitar fadiga de frequência.</div></div>
     </div>
-    <div class="tl-item">
-      <div class="tl-period">
-        <div class="tp-range">Dias 8–21</div>
-        <div class="tp-label">Semanas 2–3</div>
-      </div>
-      <div class="tl-content">
-        <div class="tc-title">📊 Otimização: Cortar o que não funciona, dobrar o que funciona</div>
-        <div class="tc-body">
-          Analisar CPL e CPA por criativo semanalmente. Pausar qualquer anúncio com CPL 2x acima da meta. Testar LAL 1–2% de compradores anteriores no Meta. Se R$4K, avaliar escalar para R$5K. Renovar todos os criativos (evitar saturação de frequência).
-        </div>
-      </div>
+    <div class="tl-row">
+      <div class="tl-per"><div class="pr">Dias 22–35</div><div class="pl">Semanas 4–5</div></div>
+      <div class="tl-con"><div class="ct">⚡ Aceleração: Urgência Real + Escassez de Lote</div><div class="cb">Ativar mensagem de escassez: "Últimas X vagas — lote fecha em Y dias". Campanha exclusiva de último lote com CTA direto. Aumentar remarketing para 30% do total. Testar UGC de participantes anteriores.</div></div>
     </div>
-    <div class="tl-item">
-      <div class="tl-period">
-        <div class="tp-range">Dias 22–35</div>
-        <div class="tp-label">Semanas 4–5</div>
-      </div>
-      <div class="tl-content">
-        <div class="tc-title">⚡ Aceleração: Urgência Real + Escassez de Lote</div>
-        <div class="tc-body">
-          Ativar mensagem de escassez: "Últimas X vagas — lote fecha em Y dias". Criar campanha específica de último lote com CTA direto. Aumentar orçamento de remarketing para 30% do total. Testar influenciadores/UGC como criativo nos anúncios.
-        </div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-period">
-        <div class="tp-range">Dias 36–50</div>
-        <div class="tp-label">Semanas 6–7</div>
-      </div>
-      <div class="tl-content">
-        <div class="tc-title">🏁 Sprint Final: All-in em Conversão</div>
-        <div class="tc-body">
-          Pausar todas as campanhas de lead frio. 100% do budget em fundo de funil: remarketing, venda direta, LAL quente. Mensagem de encerramento total: "Evento em X dias — último acesso". Acionar base de leads por email/WhatsApp manual com link direto de compra.
-        </div>
-      </div>
+    <div class="tl-row">
+      <div class="tl-per"><div class="pr">Dias 36–50</div><div class="pl">Semanas 6–7</div></div>
+      <div class="tl-con"><div class="ct">🏁 Sprint Final: All-in em Conversão</div><div class="cb">Pausar todas as campanhas de lead frio. 100% do budget em fundo de funil: remarketing, venda direta e LAL quente. Mensagem: "Evento em X dias — última chamada". Acionar base de leads por email e WhatsApp com link direto.</div></div>
     </div>
   </div>
 
 </div>
 
-<div class="pg-footer">
-  <strong><span>SDA</span> 2026 · Ao Vivo</strong> — Estratégia de Budget · Gerado em 02/03/2026 · Conta Meta: act_377480853270622 · Samuel MKT - Principal
+<div class="footer">
+  <strong><span>SDA</span> 2026 · Ao Vivo</strong> &nbsp;·&nbsp; Estratégia de Budget &nbsp;·&nbsp; 02/03/2026 &nbsp;·&nbsp; Conta Meta: act_377480853270622
 </div>
 
 <script>
-  function toggle(id) {
-    const el = document.getElementById(id);
-    el.classList.toggle('open');
+  function tog(id) {
+    document.getElementById(id).classList.toggle('open');
   }
 </script>
-
 </body>
 </html>
