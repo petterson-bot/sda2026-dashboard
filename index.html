@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDA 2026 - Plano Estratégico | 931 Ingressos em 50 Dias</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>SDA AO VIVO 2026 - Plano de Vendas | 931 Ingressos em 50 Dias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-card-hover: #1a1a25;
-            --accent-blue: #3b82f6;
-            --accent-cyan: #06b6d4;
-            --accent-green: #10b981;
-            --accent-yellow: #f59e0b;
-            --accent-red: #ef4444;
-            --accent-purple: #8b5cf6;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border: #1e293b;
-            --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-            --gradient-alert: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+            --gold: #D4AF37;
+            --gold-light: #F4D03F;
+            --gold-dark: #B8960C;
+            --black: #0A0A0A;
+            --black-light: #141414;
+            --black-card: #1A1A1A;
+            --white: #FFFFFF;
+            --gray: #888888;
+            --gray-dark: #444444;
+            --red: #E53935;
+            --green: #43A047;
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
         }
 
         * {
@@ -32,275 +28,236 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            background: var(--black);
+            color: var(--white);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Background Effects */
-        .bg-grid {
+        /* Background */
+        .bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+            background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
             pointer-events: none;
             z-index: 0;
         }
 
         .bg-glow {
             position: fixed;
-            width: 600px;
-            height: 600px;
+            width: 800px;
+            height: 800px;
             border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
+            filter: blur(200px);
+            opacity: 0.1;
             pointer-events: none;
             z-index: 0;
+            background: var(--gold);
         }
 
-        .bg-glow-1 {
-            top: -200px;
-            right: -200px;
-            background: var(--accent-blue);
-        }
+        .bg-glow-1 { top: -400px; left: 50%; transform: translateX(-50%); }
+        .bg-glow-2 { bottom: -400px; right: -200px; }
 
-        .bg-glow-2 {
-            bottom: -200px;
-            left: -200px;
-            background: var(--accent-purple);
-        }
-
-        /* Navigation */
-        .nav {
+        /* Header */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             padding: 1rem 2rem;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .nav-logo {
+        .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-1);
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .nav-link {
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
+        .header-meta {
             font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            color: var(--gray);
         }
 
-        .nav-link:hover, .nav-link.active {
-            background: var(--bg-card);
-            color: var(--text-primary);
-        }
-
-        /* Main Content */
+        /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 6rem 2rem 4rem;
+            padding: 5rem 1.5rem 3rem;
             position: relative;
             z-index: 1;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 4rem 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 3rem 0 2rem;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.5rem 1.25rem;
+            background: rgba(229, 57, 53, 0.15);
+            border: 1px solid var(--red);
             border-radius: 100px;
-            color: var(--accent-red);
-            font-size: 0.875rem;
-            font-weight: 600;
+            color: var(--red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1.5rem;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(229, 57, 53, 0); }
         }
 
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .hero-title span {
-            background: var(--gradient-1);
+        .hero-number {
+            font-size: clamp(4rem, 15vw, 10rem);
+            font-weight: 900;
+            line-height: 1;
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        .stat-card:nth-child(1) { animation-delay: 0.1s; }
-        .stat-card:nth-child(2) { animation-delay: 0.2s; }
-        .stat-card:nth-child(3) { animation-delay: 0.3s; }
-        .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
-        }
-
-        .stat-card.alert {
-            border-color: var(--accent-red);
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-        }
-
-        .stat-icon.blue { background: rgba(59, 130, 246, 0.2); }
-        .stat-icon.green { background: rgba(16, 185, 129, 0.2); }
-        .stat-icon.yellow { background: rgba(245, 158, 11, 0.2); }
-        .stat-icon.red { background: rgba(239, 68, 68, 0.2); }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
             margin-bottom: 0.5rem;
         }
 
-        .stat-value.gradient {
-            background: var(--gradient-1);
+        .hero-text {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtext {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .hero-subtext strong {
+            color: var(--gold);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .stat-box {
+            background: var(--black-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .stat-box.highlight {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(10, 10, 10, 1) 100%);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--white);
+        }
+
+        .stat-box.highlight .stat-value {
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
         }
 
-        /* Progress Section */
+        /* Progress */
         .progress-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 4rem;
+            background: var(--black-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .progress-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .progress-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .progress-numbers {
-            font-family: 'JetBrains Mono', monospace;
             font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .progress-bar-container {
-            height: 24px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+        .progress-percent {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .progress-bar-bg {
+            height: 12px;
+            background: var(--black);
+            border-radius: 6px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-bar {
             height: 100%;
-            background: var(--gradient-1);
-            border-radius: 12px;
             width: 26.7%;
-            transition: width 1.5s ease-out;
+            background: var(--gradient-gold);
+            border-radius: 6px;
             position: relative;
+            transition: width 1.5s ease-out;
         }
 
         .progress-bar::after {
@@ -310,7 +267,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             animation: shimmer 2s infinite;
         }
 
@@ -319,607 +276,521 @@
             100% { transform: translateX(100%); }
         }
 
-        .progress-markers {
+        .progress-labels {
             display: flex;
             justify-content: space-between;
-            margin-top: 0.75rem;
+            margin-top: 0.5rem;
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: var(--gray);
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Section Titles */
+        /* Section */
         .section {
-            margin-bottom: 4rem;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-number {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.25rem;
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .section-number {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--black);
+        }
+
+        .section-title h2 {
+            font-size: 1.25rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Action Cards */
-        .action-grid {
+        .actions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
         }
 
         .action-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
+            background: var(--black-card);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 1.25rem;
             transition: all 0.3s ease;
         }
 
-        .action-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-blue);
-        }
-
-        .action-card.urgent {
-            border-color: var(--accent-red);
-            border-width: 2px;
+        .action-card.pause {
+            border-color: var(--red);
+            background: linear-gradient(135deg, rgba(229, 57, 53, 0.1) 0%, var(--black-card) 100%);
         }
 
         .action-card.scale {
-            border-color: var(--accent-green);
+            border-color: var(--green);
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.1) 0%, var(--black-card) 100%);
+        }
+
+        .action-card.create {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, var(--black-card) 100%);
         }
 
         .action-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .action-badge {
             padding: 0.25rem 0.75rem;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
-        .action-badge.pause {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--accent-red);
-        }
-
-        .action-badge.scale {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-green);
-        }
-
-        .action-badge.create {
-            background: rgba(139, 92, 246, 0.2);
-            color: var(--accent-purple);
-        }
-
-        .action-badge.optimize {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--accent-yellow);
-        }
+        .action-badge.pause { background: var(--red); color: var(--white); }
+        .action-badge.scale { background: var(--green); color: var(--white); }
+        .action-badge.create { background: var(--gold); color: var(--black); }
 
         .action-title {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .action-detail {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
+        .action-desc {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
         }
 
         .action-metrics {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
         }
 
-        .action-metric {
+        .metric {
             background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
-        .action-metric span {
-            color: var(--text-muted);
-        }
+        .metric span { color: var(--gray); }
 
         /* Budget Table */
         .budget-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .budget-table th,
-        .budget-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
         }
 
         .budget-table th {
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.875rem;
+            text-align: left;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
         }
 
         .budget-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-family: 'JetBrains Mono', monospace;
         }
 
         .budget-table tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(212, 175, 55, 0.05);
         }
 
         .budget-table .total {
-            background: rgba(59, 130, 246, 0.1);
-            font-weight: 600;
+            background: rgba(212, 175, 55, 0.15);
         }
 
         .budget-table .total td {
+            font-weight: 700;
             border-bottom: none;
+            color: var(--gold);
         }
 
         /* Timeline */
         .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
+            display: grid;
+            gap: 0.75rem;
         }
 
         .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out backwards;
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--black-card);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
         }
 
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-blue);
-            transform: translateX(-5px);
-        }
-
-        .timeline-item.completed::before {
-            background: var(--accent-green);
+        .timeline-item.done {
+            border-left-color: var(--green);
+            opacity: 0.7;
         }
 
         .timeline-week {
-            font-size: 0.875rem;
-            color: var(--accent-cyan);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--gold);
         }
 
-        .timeline-meta {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .timeline-item.done .timeline-week {
+            color: var(--green);
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
         }
 
         .timeline-target {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-green);
-            border-radius: 100px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.4rem 0.75rem;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 6px;
+            color: var(--gold);
         }
 
-        /* KPI Cards */
+        .timeline-item.done .timeline-target {
+            background: rgba(67, 160, 71, 0.2);
+            color: var(--green);
+        }
+
+        /* KPIs */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
         }
 
         .kpi-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
+            background: var(--black-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .kpi-info h4 {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
+        .kpi-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .kpi-info .value {
-            font-size: 1.25rem;
-            font-weight: 700;
+        .kpi-value {
             font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
         }
 
-        .kpi-status {
-            width: 48px;
-            height: 48px;
+        .kpi-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Alert */
+        .alert {
+            background: linear-gradient(135deg, rgba(229, 57, 53, 0.15) 0%, rgba(10, 10, 10, 1) 100%);
+            border: 1px solid var(--red);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-
-        .kpi-status.good { background: rgba(16, 185, 129, 0.2); }
-        .kpi-status.warning { background: rgba(245, 158, 11, 0.2); }
-        .kpi-status.danger { background: rgba(239, 68, 68, 0.2); }
-
-        /* Alert Box */
-        .alert-box {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             margin-bottom: 2rem;
         }
 
-        .alert-box h3 {
+        .alert h3 {
+            color: var(--red);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--accent-red);
-            margin-bottom: 0.75rem;
         }
 
-        .alert-box p {
-            color: var(--text-secondary);
+        .alert p {
+            color: var(--gray);
+            font-size: 0.85rem;
             line-height: 1.6;
+        }
+
+        .alert strong {
+            color: var(--white);
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--border);
-            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 2rem;
         }
 
         .footer-logo {
             font-size: 1.25rem;
-            font-weight: 700;
-            background: var(--gradient-1);
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
         }
 
         .footer-text {
-            color: var(--text-muted);
-            font-size: 0.875rem;
+            color: var(--gray);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .container {
-                padding: 5rem 1rem 2rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .action-grid {
+            .header { padding: 0.75rem 1rem; }
+            .logo { font-size: 1.1rem; }
+            .container { padding: 4.5rem 1rem 2rem; }
+            .hero-number { font-size: 5rem; }
+            .timeline-item { 
                 grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
-            
-            .budget-table {
-                font-size: 0.875rem;
-            }
-            
-            .budget-table th,
-            .budget-table td {
-                padding: 0.75rem 0.5rem;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .timeline-target { justify-self: start; }
+            .budget-table { font-size: 0.8rem; }
+            .budget-table th, .budget-table td { padding: 0.75rem 0.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
+    <div class="bg-pattern"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
 
-    <nav class="nav">
-        <div class="nav-logo">SDA 2026</div>
-        <div class="nav-links">
-            <a href="#situacao" class="nav-link active">Situação</a>
-            <a href="#acoes" class="nav-link">Ações</a>
-            <a href="#budget" class="nav-link">Budget</a>
-            <a href="#timeline" class="nav-link">Timeline</a>
-            <a href="#kpis" class="nav-link">KPIs</a>
-        </div>
-    </nav>
+    <header class="header">
+        <div class="logo"><span>SDA AO VIVO 2026</span></div>
+        <div class="header-meta">Plano de Vendas • 50 Dias</div>
+    </header>
 
     <div class="container">
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">
-                <span>⚠️</span>
-                <span>CENÁRIO CRÍTICO - AÇÃO IMEDIATA</span>
-            </div>
-            <h1 class="hero-title">
-                Precisamos vender<br>
-                <span>931 ingressos</span><br>
-                em 50 dias
-            </h1>
-            <p class="hero-subtitle">
-                Plano estratégico para atingir a meta de 1.271 ingressos do SDA 2026. 
-                Meta diária: 18,6 vendas/dia.
-            </p>
+            <div class="hero-badge">⚡ Ação Imediata Necessária</div>
+            <div class="hero-number">931</div>
+            <div class="hero-text">ingressos para vender em 50 dias</div>
+            <div class="hero-subtext">Meta diária: <strong>18,6 vendas/dia</strong></div>
         </section>
 
-        <!-- Stats Grid -->
-        <section id="situacao" class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon blue">🎯</div>
-                <div class="stat-value gradient">1.271</div>
+        <!-- Stats -->
+        <section class="stats-row">
+            <div class="stat-box highlight">
+                <div class="stat-value">1.271</div>
                 <div class="stat-label">Meta Total</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon green">✓</div>
+            <div class="stat-box">
                 <div class="stat-value">340</div>
-                <div class="stat-label">Já Vendidos</div>
+                <div class="stat-label">Vendidos</div>
             </div>
-            <div class="stat-card alert">
-                <div class="stat-icon red">🔥</div>
-                <div class="stat-value">931</div>
-                <div class="stat-label">Faltam Vender</div>
+            <div class="stat-box">
+                <div class="stat-value">50</div>
+                <div class="stat-label">Dias Restantes</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon yellow">📈</div>
-                <div class="stat-value">18,6</div>
-                <div class="stat-label">Vendas/Dia Necessárias</div>
+            <div class="stat-box highlight">
+                <div class="stat-value">R$4k</div>
+                <div class="stat-label">Budget/Dia</div>
             </div>
         </section>
 
         <!-- Progress -->
-        <section class="progress-section fade-in">
+        <section class="progress-section">
             <div class="progress-header">
-                <h3 class="progress-title">Progresso da Meta</h3>
-                <div class="progress-numbers">
-                    <span style="color: var(--accent-green)">340</span> / 
-                    <span style="color: var(--text-muted)">1.271</span>
-                    <span style="color: var(--accent-blue); margin-left: 0.5rem">(26,7%)</span>
-                </div>
+                <div class="progress-title">Progresso da Meta</div>
+                <div class="progress-percent">26,7%</div>
             </div>
-            <div class="progress-bar-container">
+            <div class="progress-bar-bg">
                 <div class="progress-bar"></div>
             </div>
-            <div class="progress-markers">
+            <div class="progress-labels">
                 <span>0</span>
-                <span>318 (25%)</span>
-                <span>636 (50%)</span>
-                <span>954 (75%)</span>
-                <span>1.271 (100%)</span>
+                <span>318</span>
+                <span>636</span>
+                <span>954</span>
+                <span>1.271</span>
             </div>
         </section>
 
-        <!-- Alert Box -->
-        <div class="alert-box fade-in">
-            <h3>⚠️ PONTO CRÍTICO - TIME COMERCIAL</h3>
-            <p>
-                <strong>57% das vendas atuais vêm do time comercial.</strong> Para atingir 18,6 vendas/dia, 
-                o comercial precisa fazer <strong>10-11 vendas/dia</strong> (vs ~3,4 atual). 
-                Isso requer triplicar a capacidade comercial OU aumentar significativamente o volume de leads qualificados.
-            </p>
+        <!-- Alert -->
+        <div class="alert">
+            <h3>⚠️ Ponto Crítico - Time Comercial</h3>
+            <p><strong>57% das vendas atuais vêm do comercial.</strong> Para atingir a meta, o time precisa fazer <strong>10-11 vendas/dia</strong> (atualmente ~3,4/dia). Alternativa: aumentar volume de leads qualificados.</p>
         </div>
 
-        <!-- Ações Imediatas -->
-        <section id="acoes" class="section fade-in">
-            <div class="section-header">
+        <!-- Ações -->
+        <section class="section">
+            <div class="section-title">
                 <div class="section-number">1</div>
-                <h2 class="section-title">Ações Imediatas (Próximas 24-48h)</h2>
+                <h2>Ações Imediatas (24-48h)</h2>
             </div>
-
-            <div class="action-grid">
-                <div class="action-card urgent">
+            <div class="actions-grid">
+                <div class="action-card pause">
                     <div class="action-header">
-                        <span class="action-badge pause">PAUSAR</span>
+                        <span class="action-badge pause">Pausar</span>
                     </div>
-                    <h4 class="action-title">Campanha WhatsApp - Meta Ads</h4>
-                    <p class="action-detail">CPL de R$ 800 é 27x mais caro que formulário. Desperdiçando R$ 100+/dia.</p>
+                    <div class="action-title">Campanha WhatsApp - Meta</div>
+                    <div class="action-desc">CPL absurdo de R$ 800. Desperdiçando budget.</div>
                     <div class="action-metrics">
-                        <div class="action-metric"><span>CPL:</span> R$ 800,81</div>
-                        <div class="action-metric"><span>Leads:</span> 4</div>
+                        <div class="metric"><span>CPL:</span> R$ 800</div>
+                        <div class="metric"><span>Leads:</span> 4</div>
                     </div>
                 </div>
 
-                <div class="action-card urgent">
+                <div class="action-card pause">
                     <div class="action-header">
-                        <span class="action-badge pause">PAUSAR</span>
+                        <span class="action-badge pause">Pausar</span>
                     </div>
-                    <h4 class="action-title">Display Google Ads</h4>
-                    <p class="action-detail">Zero conversões com R$ 243 gastos. Sem retorno.</p>
+                    <div class="action-title">Display Google Ads</div>
+                    <div class="action-desc">Zero conversões. Sem retorno.</div>
                     <div class="action-metrics">
-                        <div class="action-metric"><span>Conv.:</span> 0</div>
-                        <div class="action-metric"><span>Gasto:</span> R$ 243</div>
-                    </div>
-                </div>
-
-                <div class="action-card scale">
-                    <div class="action-header">
-                        <span class="action-badge scale">ESCALAR 3x</span>
-                    </div>
-                    <h4 class="action-title">Google Pmax Sudeste</h4>
-                    <p class="action-detail">Melhor CPA de todas as campanhas! Aumentar para R$ 200/dia.</p>
-                    <div class="action-metrics">
-                        <div class="action-metric"><span>CPA:</span> R$ 16,76</div>
-                        <div class="action-metric"><span>Conv.:</span> 36</div>
+                        <div class="metric"><span>Conv.:</span> 0</div>
+                        <div class="metric"><span>Gasto:</span> R$ 243</div>
                     </div>
                 </div>
 
                 <div class="action-card scale">
                     <div class="action-header">
-                        <span class="action-badge scale">ESCALAR 3x</span>
+                        <span class="action-badge scale">Escalar 3x</span>
                     </div>
-                    <h4 class="action-title">Formulário TesteCriativo - Meta</h4>
-                    <p class="action-detail">CPL mais baixo do Meta Ads. Aumentar para R$ 200/dia.</p>
+                    <div class="action-title">Google Pmax Sudeste</div>
+                    <div class="action-desc">Melhor CPA! Aumentar para R$ 200/dia.</div>
                     <div class="action-metrics">
-                        <div class="action-metric"><span>CPL:</span> R$ 7,71</div>
-                        <div class="action-metric"><span>Leads:</span> 89</div>
+                        <div class="metric"><span>CPA:</span> R$ 16,76</div>
+                        <div class="metric"><span>Conv.:</span> 36</div>
                     </div>
                 </div>
 
                 <div class="action-card scale">
                     <div class="action-header">
-                        <span class="action-badge scale">ESCALAR 2x</span>
+                        <span class="action-badge scale">Escalar 3x</span>
                     </div>
-                    <h4 class="action-title">Venda Advantage CBO - Meta</h4>
-                    <p class="action-detail">Melhor CPA de vendas diretas. Aumentar para R$ 500/dia.</p>
+                    <div class="action-title">Formulário TesteCriativo</div>
+                    <div class="action-desc">Melhor CPL do Meta. Subir para R$ 200/dia.</div>
                     <div class="action-metrics">
-                        <div class="action-metric"><span>CPA:</span> R$ 178</div>
-                        <div class="action-metric"><span>Vendas:</span> 24</div>
+                        <div class="metric"><span>CPL:</span> R$ 7,71</div>
+                        <div class="metric"><span>Leads:</span> 89</div>
                     </div>
                 </div>
 
-                <div class="action-card">
+                <div class="action-card scale">
                     <div class="action-header">
-                        <span class="action-badge create">CRIAR</span>
+                        <span class="action-badge scale">Escalar 2x</span>
                     </div>
-                    <h4 class="action-title">Remarketing Checkout Abandonado</h4>
-                    <p class="action-detail">269 pessoas iniciaram checkout e não finalizaram. Oportunidade imediata.</p>
+                    <div class="action-title">Venda Advantage CBO</div>
+                    <div class="action-desc">Melhor CPA de vendas. Subir para R$ 500/dia.</div>
                     <div class="action-metrics">
-                        <div class="action-metric"><span>Audiência:</span> 269</div>
-                        <div class="action-metric"><span>Budget:</span> R$ 100/dia</div>
+                        <div class="metric"><span>CPA:</span> R$ 178</div>
+                        <div class="metric"><span>Vendas:</span> 24</div>
+                    </div>
+                </div>
+
+                <div class="action-card create">
+                    <div class="action-header">
+                        <span class="action-badge create">Criar</span>
+                    </div>
+                    <div class="action-title">Remarketing Checkout</div>
+                    <div class="action-desc">269 pessoas abandonaram checkout. Oportunidade!</div>
+                    <div class="action-metrics">
+                        <div class="metric"><span>Audiência:</span> 269</div>
+                        <div class="metric"><span>Budget:</span> R$ 100/dia</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Budget -->
-        <section id="budget" class="section fade-in">
-            <div class="section-header">
+        <section class="section">
+            <div class="section-title">
                 <div class="section-number">2</div>
-                <h2 class="section-title">Distribuição de Budget</h2>
+                <h2>Distribuição de Budget</h2>
             </div>
-
-            <div class="progress-section">
+            <div class="progress-section" style="padding: 0; overflow: hidden;">
                 <table class="budget-table">
                     <thead>
                         <tr>
                             <th>Canal</th>
                             <th>Budget/Dia</th>
                             <th>Meta Conv.</th>
-                            <th>CPA Esperado</th>
-                            <th>Total 50 Dias</th>
+                            <th>50 Dias</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Meta Ads - Vendas Diretas</td>
+                            <td>Meta Ads - Vendas</td>
                             <td>R$ 1.500</td>
                             <td>9 vendas</td>
-                            <td>R$ 167</td>
                             <td>R$ 75.000</td>
                         </tr>
                         <tr>
-                            <td>Meta Ads - Leads (Formulário)</td>
+                            <td>Meta Ads - Leads</td>
                             <td>R$ 1.200</td>
                             <td>92 leads</td>
-                            <td>R$ 13</td>
                             <td>R$ 60.000</td>
                         </tr>
                         <tr>
-                            <td>Google Ads (Pmax + Search)</td>
+                            <td>Google Ads</td>
                             <td>R$ 800</td>
                             <td>28 leads</td>
-                            <td>R$ 28</td>
                             <td>R$ 40.000</td>
                         </tr>
                         <tr>
-                            <td>Remarketing (Meta + Google)</td>
+                            <td>Remarketing</td>
                             <td>R$ 300</td>
                             <td>2 vendas</td>
-                            <td>R$ 150</td>
                             <td>R$ 15.000</td>
                         </tr>
                         <tr>
-                            <td>Reserva / Testes</td>
+                            <td>Reserva/Testes</td>
                             <td>R$ 200</td>
-                            <td>-</td>
                             <td>-</td>
                             <td>R$ 10.000</td>
                         </tr>
                         <tr class="total">
-                            <td><strong>TOTAL</strong></td>
-                            <td><strong>R$ 4.000/dia</strong></td>
-                            <td><strong>18-19/dia</strong></td>
-                            <td>-</td>
-                            <td><strong>R$ 200.000</strong></td>
+                            <td>TOTAL</td>
+                            <td>R$ 4.000/dia</td>
+                            <td>18-19/dia</td>
+                            <td>R$ 200.000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -927,172 +798,111 @@
         </section>
 
         <!-- Timeline -->
-        <section id="timeline" class="section fade-in">
-            <div class="section-header">
+        <section class="section">
+            <div class="section-title">
                 <div class="section-number">3</div>
-                <h2 class="section-title">Checkpoints Semanais</h2>
+                <h2>Checkpoints Semanais</h2>
             </div>
-
-            <div class="progress-section">
-                <div class="timeline">
-                    <div class="timeline-item completed">
-                        <div class="timeline-week">ATUAL</div>
-                        <div class="timeline-meta">Ponto de partida</div>
-                        <span class="timeline-target">340 vendidos ✓</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 1 (Dias 1-7)</div>
-                        <div class="timeline-meta">Setup agressivo + primeiros resultados</div>
-                        <span class="timeline-target">Meta: 470 (+130)</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 2 (Dias 8-14)</div>
-                        <div class="timeline-meta">Escala máxima das campanhas vencedoras</div>
-                        <span class="timeline-target">Meta: 600 (+130)</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 3 (Dias 15-21)</div>
-                        <div class="timeline-meta">Otimização e novos criativos</div>
-                        <span class="timeline-target">Meta: 730 (+130)</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 4 (Dias 22-28)</div>
-                        <div class="timeline-meta">Manutenção do ritmo</div>
-                        <span class="timeline-target">Meta: 860 (+130)</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 5-6 (Dias 29-42)</div>
-                        <div class="timeline-meta">Campanhas de urgência</div>
-                        <span class="timeline-target">Meta: 1.120 (+260)</span>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-week">SEMANA 7 (Dias 43-50)</div>
-                        <div class="timeline-meta">Sprint final - escassez máxima</div>
-                        <span class="timeline-target">Meta: 1.271 (+151) 🎯</span>
-                    </div>
+            <div class="timeline">
+                <div class="timeline-item done">
+                    <div class="timeline-week">Atual</div>
+                    <div class="timeline-desc">Ponto de partida</div>
+                    <div class="timeline-target">340 ✓</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 1</div>
+                    <div class="timeline-desc">Setup agressivo</div>
+                    <div class="timeline-target">→ 470</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 2</div>
+                    <div class="timeline-desc">Escala máxima</div>
+                    <div class="timeline-target">→ 600</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 3</div>
+                    <div class="timeline-desc">Otimização</div>
+                    <div class="timeline-target">→ 730</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 4</div>
+                    <div class="timeline-desc">Manutenção</div>
+                    <div class="timeline-target">→ 860</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 5-6</div>
+                    <div class="timeline-desc">Campanhas urgência</div>
+                    <div class="timeline-target">→ 1.120</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semana 7</div>
+                    <div class="timeline-desc">Sprint final</div>
+                    <div class="timeline-target">→ 1.271 🎯</div>
                 </div>
             </div>
         </section>
 
         <!-- KPIs -->
-        <section id="kpis" class="section fade-in">
-            <div class="section-header">
+        <section class="section">
+            <div class="section-title">
                 <div class="section-number">4</div>
-                <h2 class="section-title">KPIs para Monitorar Diariamente</h2>
+                <h2>KPIs Diários</h2>
             </div>
-
             <div class="kpi-grid">
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>Vendas/Dia</h4>
-                        <div class="value">Meta: 18-19</div>
+                    <div>
+                        <div class="kpi-label">Vendas/Dia</div>
+                        <div class="kpi-value">18-19</div>
                     </div>
-                    <div class="kpi-status warning">📊</div>
+                    <div class="kpi-icon">🎯</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>Leads/Dia</h4>
-                        <div class="value">Meta: 100-120</div>
+                    <div>
+                        <div class="kpi-label">Leads/Dia</div>
+                        <div class="kpi-value">100-120</div>
                     </div>
-                    <div class="kpi-status good">📈</div>
+                    <div class="kpi-icon">📈</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>CPL Meta Ads</h4>
-                        <div class="value">Meta: < R$ 15</div>
+                    <div>
+                        <div class="kpi-label">CPL Meta</div>
+                        <div class="kpi-value">&lt; R$ 15</div>
                     </div>
-                    <div class="kpi-status good">💰</div>
+                    <div class="kpi-icon">💰</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>CPA Vendas Diretas</h4>
-                        <div class="value">Meta: < R$ 180</div>
+                    <div>
+                        <div class="kpi-label">CPA Vendas</div>
+                        <div class="kpi-value">&lt; R$ 180</div>
                     </div>
-                    <div class="kpi-status warning">🎯</div>
+                    <div class="kpi-icon">🛒</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>Taxa Conv. Lead→Venda</h4>
-                        <div class="value">Meta: > 8%</div>
+                    <div>
+                        <div class="kpi-label">Conv. Lead→Venda</div>
+                        <div class="kpi-value">&gt; 8%</div>
                     </div>
-                    <div class="kpi-status danger">⚠️</div>
+                    <div class="kpi-icon">🔄</div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>Tempo Resposta Comercial</h4>
-                        <div class="value">Meta: < 5 min</div>
+                    <div>
+                        <div class="kpi-label">Resposta Comercial</div>
+                        <div class="kpi-value">&lt; 5 min</div>
                     </div>
-                    <div class="kpi-status warning">⏱️</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>Gasto Diário Total</h4>
-                        <div class="value">Meta: R$ 4.000</div>
-                    </div>
-                    <div class="kpi-status good">💵</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-info">
-                        <h4>ROAS Geral</h4>
-                        <div class="value">Meta: > 3x</div>
-                    </div>
-                    <div class="kpi-status good">📊</div>
+                    <div class="kpi-icon">⏱️</div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-logo">Samuel MKT - SDA 2026</div>
-            <p class="footer-text">Relatório gerado em 02 de Março de 2026</p>
+            <div class="footer-logo">SDA AO VIVO 2026</div>
+            <div class="footer-text">O Maior Espetáculo de Tráfego e Audiência do Brasil</div>
         </footer>
     </div>
 
     <script>
-        // Scroll animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Nav active state
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id]');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scroll
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Animate progress bar on load
+        // Animate progress bar
         setTimeout(() => {
             document.querySelector('.progress-bar').style.width = '26.7%';
         }, 500);
