@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDA 2026 - Relatório Completo | Conta 04</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e17;--card:#111827;--card-border:#1e293b;--text:#e2e8f0;--text-muted:#94a3b8;--accent-blue:#3b82f6;--accent-green:#10b981;--accent-red:#ef4444;--accent-yellow:#f59e0b;--accent-purple:#8b5cf6;--accent-pink:#ec4899;--accent-cyan:#06b6d4;--trafego:#3b82f6;--comercial:#f59e0b;--organico:#10b981}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6}.container{max-width:1280px;margin:0 auto;padding:24px}
+.header{text-align:center;padding:48px 0 32px;border-bottom:1px solid var(--card-border);margin-bottom:32px}.header h1{font-size:2.4rem;font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,#3b82f6,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.header .subtitle{color:var(--text-muted);font-family:'Space Mono',monospace;font-size:0.85rem;margin-top:8px}.header .period{display:inline-block;background:#1e293b;padding:6px 16px;border-radius:20px;font-size:0.8rem;color:var(--accent-cyan);margin-top:12px;font-family:'Space Mono',monospace}
+.section{margin-bottom:40px}.section-title{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:16px;padding-left:12px;border-left:3px solid var(--accent-blue)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}.kpi{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px;position:relative;overflow:hidden}.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}.kpi.blue::before{background:var(--accent-blue)}.kpi.green::before{background:var(--accent-green)}.kpi.yellow::before{background:var(--accent-yellow)}.kpi.purple::before{background:var(--accent-purple)}.kpi.pink::before{background:var(--accent-pink)}.kpi.cyan::before{background:var(--accent-cyan)}.kpi.red::before{background:var(--accent-red)}
+.kpi-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-family:'Space Mono',monospace}.kpi-value{font-size:1.7rem;font-weight:700;margin-top:4px}.kpi-sub{font-size:0.75rem;color:var(--text-muted);margin-top:4px}
+.channels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}@media(max-width:900px){.channels-grid{grid-template-columns:1fr}}
+.channel-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:24px;position:relative;overflow:hidden}.channel-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}.channel-card.traf::before{background:var(--trafego)}.channel-card.com::before{background:var(--comercial)}.channel-card.org::before{background:var(--organico)}
+.channel-name{font-size:0.8rem;font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px}.channel-name.traf{color:var(--trafego)}.channel-name.com{color:var(--comercial)}.channel-name.org{color:var(--organico)}
+.channel-big{font-size:2rem;font-weight:700}.channel-pct{font-size:0.85rem;color:var(--text-muted);margin-left:6px}.channel-stats{margin-top:12px}.channel-stat{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--card-border);font-size:0.85rem}.channel-stat .label{color:var(--text-muted)}
+.bar-row{display:flex;height:32px;border-radius:8px;overflow:hidden;margin-bottom:8px}.bar-segment{display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;color:#fff;font-family:'Space Mono',monospace}
+.table-wrap{overflow-x:auto;margin-bottom:16px}table{width:100%;border-collapse:collapse;font-size:0.85rem}th{text-align:left;padding:10px 12px;background:#1e293b;color:var(--text-muted);font-family:'Space Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;border-bottom:2px solid var(--card-border)}td{padding:10px 12px;border-bottom:1px solid var(--card-border)}tr:hover td{background:#1a2332}.num{text-align:right;font-family:'Space Mono',monospace}.good{color:var(--accent-green)}.warn{color:var(--accent-yellow)}.bad{color:var(--accent-red)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-family:'Space Mono',monospace}.tag-traf{background:#3b82f620;color:var(--trafego)}.tag-com{background:#f59e0b20;color:var(--comercial)}.tag-org{background:#10b98120;color:var(--organico)}
+.insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}.insight{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px;border-left:4px solid}.insight.scale{border-left-color:var(--accent-green)}.insight.reduce{border-left-color:var(--accent-red)}.insight.test{border-left-color:var(--accent-yellow)}.insight.fix{border-left-color:var(--accent-purple)}.insight-title{font-weight:700;font-size:0.9rem;margin-bottom:8px}.insight-body{font-size:0.82rem;color:var(--text-muted);line-height:1.6}
+.note-box{background:var(--card);border:1px solid var(--card-border);border-radius:8px;padding:16px;font-size:0.82rem;color:var(--text-muted);margin-bottom:16px}
+.exec-box{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:24px;font-size:0.88rem;line-height:1.8}
+.footer{text-align:center;padding:32px 0;color:var(--text-muted);font-size:0.75rem;font-family:'Space Mono',monospace;border-top:1px solid var(--card-border);margin-top:32px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>SDA 2026 — Relatório Completo</h1>
+  <div class="subtitle">Conta 04 · act_377480853270622 · Samuel MKT</div>
+  <div class="period">11/Nov/2025 → 02/Mar/2026 (113 dias)</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Meta Ads — Visão Geral</div>
+  <div class="kpi-grid">
+    <div class="kpi blue"><div class="kpi-label">Investimento Total</div><div class="kpi-value">R$ 181.992</div><div class="kpi-sub">60 campanhas ativas</div></div>
+    <div class="kpi green"><div class="kpi-label">Leads Gerados</div><div class="kpi-value">4.269</div><div class="kpi-sub">CPL médio: R$ 42,63</div></div>
+    <div class="kpi purple"><div class="kpi-label">Compras (API)</div><div class="kpi-value">319</div><div class="kpi-sub">CPA médio: R$ 570</div></div>
+    <div class="kpi cyan"><div class="kpi-label">Impressões</div><div class="kpi-value">7.3M</div><div class="kpi-sub">Alcance: 2.77M</div></div>
+    <div class="kpi yellow"><div class="kpi-label">Cliques</div><div class="kpi-value">94.195</div><div class="kpi-sub">CTR: 1.29%</div></div>
+    <div class="kpi pink"><div class="kpi-label">WhatsApp</div><div class="kpi-value">446</div><div class="kpi-sub">R$ 3.446 investidos</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Faturamento Real — 274 Registros da Planilha</div>
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-label">Faturamento Total</div><div class="kpi-value">R$ 378.496</div><div class="kpi-sub">253 vendas · 342 ingressos</div></div>
+    <div class="kpi blue"><div class="kpi-label">ROAS Geral</div><div class="kpi-value">2.08x</div><div class="kpi-sub">R$378K / R$182K</div></div>
+    <div class="kpi yellow"><div class="kpi-label">Ticket Médio</div><div class="kpi-value">R$ 1.496</div><div class="kpi-sub">Experience+VIP+Platinum</div></div>
+    <div class="kpi purple"><div class="kpi-label">Conversão Lead→Venda</div><div class="kpi-value">5.9%</div><div class="kpi-sub">253 / 4.269 leads</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Vendas por Origem</div>
+  <div class="bar-row">
+    <div class="bar-segment" style="width:64.4%;background:var(--comercial);">COMERCIAL 64%</div>
+    <div class="bar-segment" style="width:21.3%;background:var(--organico);">ORGÂNICO 21%</div>
+    <div class="bar-segment" style="width:14.2%;background:var(--trafego);">TRÁFEGO 14%</div>
+  </div>
+  <div class="channels-grid">
+    <div class="channel-card com"><div class="channel-name com">🏪 COMERCIAL</div><div class="channel-big">R$ 243.763 <span class="channel-pct">(64,4%)</span></div><div class="channel-stats"><div class="channel-stat"><span class="label">Vendas</span><span>138</span></div><div class="channel-stat"><span class="label">Ingressos</span><span>207</span></div><div class="channel-stat"><span class="label">Ticket Médio</span><span>R$ 1.766</span></div></div></div>
+    <div class="channel-card org"><div class="channel-name org">🌱 ORGÂNICO</div><div class="channel-big">R$ 80.804 <span class="channel-pct">(21,3%)</span></div><div class="channel-stats"><div class="channel-stat"><span class="label">Vendas</span><span>69</span></div><div class="channel-stat"><span class="label">Ingressos</span><span>80</span></div><div class="channel-stat"><span class="label">Ticket Médio</span><span>R$ 1.171</span></div></div></div>
+    <div class="channel-card traf"><div class="channel-name traf">📢 TRÁFEGO PAGO</div><div class="channel-big">R$ 53.929 <span class="channel-pct">(14,2%)</span></div><div class="channel-stats"><div class="channel-stat"><span class="label">Vendas</span><span>46</span></div><div class="channel-stat"><span class="label">Ingressos</span><span>55</span></div><div class="channel-stat"><span class="label">Ticket Médio</span><span>R$ 1.172</span></div></div></div>
+  </div>
+  <div class="note-box"><strong style="color:var(--accent-yellow);">⚡ Importante:</strong> Das 138 vendas comerciais, <strong style="color:var(--text);">45+ possuem campanhas Meta nos UTMs</strong>. O real impacto do tráfego pago é maior — ele gera o lead que o comercial converte via WhatsApp. ROAS real estimado entre <strong style="color:var(--accent-green);">1.5x - 2.0x</strong>.</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Comercial — Por Vendedor</div>
+  <div class="table-wrap"><table><thead><tr><th>Vendedor</th><th>Tipo</th><th class="num">Vendas</th><th class="num">Ingressos</th><th class="num">Faturamento</th><th class="num">%</th></tr></thead><tbody>
+    <tr><td>WhatsOficial</td><td><span class="tag tag-com">Comercial</span></td><td class="num">38</td><td class="num">48</td><td class="num">R$ 51.353</td><td class="num">21,1%</td></tr>
+    <tr><td>Comercial-Juliana</td><td><span class="tag tag-com">Comercial</span></td><td class="num">26</td><td class="num">34</td><td class="num">R$ 42.341</td><td class="num">17,4%</td></tr>
+    <tr><td>Comercial-Nathalia</td><td><span class="tag tag-com">Comercial</span></td><td class="num">15</td><td class="num">24</td><td class="num">R$ 35.326</td><td class="num">14,5%</td></tr>
+    <tr><td>Comercial-Jalai</td><td><span class="tag tag-com">Comercial</span></td><td class="num">20</td><td class="num">23</td><td class="num">R$ 32.128</td><td class="num">13,2%</td></tr>
+    <tr><td>Comercial-Junior</td><td><span class="tag tag-com">Comercial</span></td><td class="num">19</td><td class="num">22</td><td class="num">R$ 26.181</td><td class="num">10,7%</td></tr>
+    <tr><td>ZeRoberto</td><td><span class="tag" style="background:#ec489920;color:#ec4899">Black</span></td><td class="num">2</td><td class="num">28</td><td class="num">R$ 19.609</td><td class="num">8,0%</td></tr>
+    <tr><td>Lizandra + Outros Black</td><td><span class="tag" style="background:#ec489920;color:#ec4899">Black</span></td><td class="num">9</td><td class="num">14</td><td class="num">R$ 22.005</td><td class="num">9,0%</td></tr>
+    <tr><td>Eduzz RVP + Outros</td><td><span class="tag tag-com">Outros</span></td><td class="num">9</td><td class="num">14</td><td class="num">R$ 14.821</td><td class="num">6,1%</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Tráfego Pago — Vendas Diretas</div>
+  <div class="table-wrap"><table><thead><tr><th>Fonte</th><th class="num">Vendas</th><th class="num">Ingressos</th><th class="num">Faturamento</th></tr></thead><tbody>
+    <tr><td><span class="tag tag-traf">Meta Ads</span></td><td class="num">28</td><td class="num">34</td><td class="num">R$ 34.592</td></tr>
+    <tr><td><span class="tag tag-traf">Google Ads</span></td><td class="num">13</td><td class="num">15</td><td class="num">R$ 13.705</td></tr>
+    <tr><td><span class="tag tag-traf">UTM dinâmico / Eduzz</span></td><td class="num">5</td><td class="num">6</td><td class="num">R$ 5.632</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Vendas por Lote</div>
+  <div class="table-wrap"><table><thead><tr><th>Lote</th><th class="num">Vendas</th><th class="num">Ing.</th><th class="num">Faturamento</th><th class="num" style="color:var(--trafego)">Tráfego</th><th class="num" style="color:var(--comercial)">Comercial</th><th class="num" style="color:var(--organico)">Orgânico</th></tr></thead><tbody>
+    <tr><td><strong>Pré-Venda</strong></td><td class="num">100</td><td class="num">148</td><td class="num">R$ 149.449</td><td class="num">R$ 16.790</td><td class="num">R$ 98.114</td><td class="num">R$ 34.545</td></tr>
+    <tr><td><strong>PV Relâmpago</strong></td><td class="num">53</td><td class="num">53</td><td class="num">R$ 53.924</td><td class="num">R$ 10.861</td><td class="num">R$ 30.855</td><td class="num">R$ 12.208</td></tr>
+    <tr><td><strong>1º Lote</strong></td><td class="num">48</td><td class="num">61</td><td class="num">R$ 68.535</td><td class="num">R$ 8.923</td><td class="num">R$ 42.357</td><td class="num">R$ 17.255</td></tr>
+    <tr><td><strong>2º Lote</strong></td><td class="num">27</td><td class="num">33</td><td class="num">R$ 45.094</td><td class="num">R$ 10.673</td><td class="num">R$ 34.421</td><td class="num">R$ 0</td></tr>
+    <tr><td><strong>2ºL Reabertura</strong></td><td class="num">25</td><td class="num">35</td><td class="num">R$ 61.494</td><td class="num">R$ 6.682</td><td class="num">R$ 38.017</td><td class="num">R$ 4.238</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Top 10 Campanhas Meta Ads</div>
+  <div class="table-wrap"><table><thead><tr><th>Campanha</th><th class="num">Spend</th><th class="num">Leads</th><th class="num">CPL</th><th class="num">Compras</th><th class="num">CPA</th></tr></thead><tbody>
+    <tr><td>Venda-PreVenda_Quente</td><td class="num">R$ 20.784</td><td class="num">26</td><td class="num">—</td><td class="num">57</td><td class="num good">R$ 365</td></tr>
+    <tr><td>Lead-Comercial-Lote_Quente_Teste02</td><td class="num">R$ 20.410</td><td class="num">313</td><td class="num bad">R$ 65</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>Lead-Comercial-Lote1_Quente_ABO</td><td class="num">R$ 13.157</td><td class="num">549</td><td class="num good">R$ 24</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>Lead-ListadeEspera_Quente 🏆</td><td class="num">R$ 10.635</td><td class="num">566</td><td class="num good">R$ 19</td><td class="num">69</td><td class="num good">R$ 154</td></tr>
+    <tr><td>Lead-Comercial-Lote_Frio_Teste03</td><td class="num">R$ 10.245</td><td class="num">392</td><td class="num good">R$ 26</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>Venda-Checkout-Lote_Quente_Teste02</td><td class="num">R$ 6.969</td><td class="num">—</td><td class="num">—</td><td class="num">17</td><td class="num warn">R$ 410</td></tr>
+    <tr><td>Lead-Lote1_Advantage_CBO</td><td class="num">R$ 6.465</td><td class="num">298</td><td class="num good">R$ 22</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>ME_MAPAESCALA-Lead_Formulario</td><td class="num">R$ 6.096</td><td class="num">85</td><td class="num bad">R$ 72</td><td class="num">—</td><td class="num">—</td></tr>
+    <tr><td>Venda-ReaberturaPreVenda ⭐</td><td class="num">R$ 5.989</td><td class="num">—</td><td class="num">—</td><td class="num">28</td><td class="num good">R$ 214</td></tr>
+    <tr><td>Lead-Lote1_FrioLL_CBO</td><td class="num">R$ 5.584</td><td class="num">283</td><td class="num good">R$ 20</td><td class="num">—</td><td class="num">—</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Melhores Públicos para Venda (≥3 compras)</div>
+  <div class="table-wrap"><table><thead><tr><th>Público</th><th class="num">Compras</th><th class="num">CPA</th><th class="num">Spend</th></tr></thead><tbody>
+    <tr><td class="good">Env014D_IG_Clique1dia</td><td class="num">10</td><td class="num good">R$ 131</td><td class="num">R$ 1.310</td></tr>
+    <tr><td class="good">IG007_Auto</td><td class="num">10</td><td class="num good">R$ 147</td><td class="num">R$ 1.474</td></tr>
+    <tr><td class="good">LALCompradores_Advantage</td><td class="num">24</td><td class="num good">R$ 185</td><td class="num">R$ 4.446</td></tr>
+    <tr><td>Env007D_IG_video</td><td class="num">20</td><td class="num warn">R$ 409</td><td class="num">R$ 8.176</td></tr>
+    <tr><td class="bad">Env007D_IG_estatico</td><td class="num">11</td><td class="num bad">R$ 736</td><td class="num">R$ 8.101</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Melhores Públicos para Lead (CPL ≤R$22)</div>
+  <div class="table-wrap"><table><thead><tr><th>Público</th><th class="num">Leads</th><th class="num">CPL</th><th class="num">Spend</th></tr></thead><tbody>
+    <tr><td class="good">ICPSniper090D</td><td class="num">105</td><td class="num good">R$ 9,66</td><td class="num">R$ 1.014</td></tr>
+    <tr><td class="good">VisitouPerfil030D</td><td class="num">111</td><td class="num good">R$ 10,25</td><td class="num">R$ 1.138</td></tr>
+    <tr><td class="good">VisitouPerfil007D</td><td class="num">61</td><td class="num good">R$ 17,42</td><td class="num">R$ 1.063</td></tr>
+    <tr><td class="good">RMKT3x_Auto</td><td class="num">45</td><td class="num good">R$ 17,52</td><td class="num">R$ 789</td></tr>
+    <tr><td class="good">LL1Compradores</td><td class="num">60</td><td class="num good">R$ 17,61</td><td class="num">R$ 1.057</td></tr>
+    <tr><td class="good">LL1RMKT (ListaEspera)</td><td class="num">205</td><td class="num good">R$ 19,99</td><td class="num">R$ 4.098</td></tr>
+    <tr><td class="good">BaseRMKT_Advantage</td><td class="num">298</td><td class="num good">R$ 21,70</td><td class="num">R$ 6.465</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Recomendações Estratégicas</div>
+  <div class="insight-grid">
+    <div class="insight scale"><div class="insight-title">🚀 ESCALAR: LALCompradores_Advantage</div><div class="insight-body">24 compras · CPA R$ 185. Melhor público para venda. Aumentar budget 30-50%. Consistência no 2ºLote e Reabertura.</div></div>
+    <div class="insight scale"><div class="insight-title">🚀 ESCALAR: Env014D + IG007_Auto</div><div class="insight-body">CPAs R$ 131 e R$ 147. Públicos quentes com janela curta. Aumentar budget e testar mais criativos de venda.</div></div>
+    <div class="insight scale"><div class="insight-title">🚀 ESCALAR: ICPSniper + VisitouPerfil</div><div class="insight-body">CPLs R$ 9,66 e R$ 10,25. Budget baixo (~R$1K). Escalar para R$ 3-5K. Leads convertem bem no comercial.</div></div>
+    <div class="insight reduce"><div class="insight-title">🔻 REDUZIR: PixelListaIG090</div><div class="insight-body">CPL R$ 54-81, gastando R$ 9K+. É 6-8x mais caro que ICPSniper. Reduzir 50% e realocar.</div></div>
+    <div class="insight reduce"><div class="insight-title">🔻 REDUZIR: Env007D_IG_estatico</div><div class="insight-body">CPA R$ 736 vs R$ 409 do vídeo. Pausar estáticos e concentrar em vídeo.</div></div>
+    <div class="insight fix"><div class="insight-title">🔧 CORRIGIR: UTMs dinâmicos</div><div class="insight-body">4+ vendas com {{campaign.name}}. Template não substituído. Revisar UTMs para rastreamento correto.</div></div>
+    <div class="insight fix"><div class="insight-title">🔧 CORRIGIR: Atribuição multi-touch</div><div class="insight-body">6+ vendas "Orgânicas" com campanha Meta no UTM. Considerar first-touch para medir real impacto do tráfego.</div></div>
+    <div class="insight test"><div class="insight-title">🧪 TESTAR: Venda Frio por segmento</div><div class="insight-body">Advogado e Dentista gerando vendas diretas. Testar mais segmentos profissionais com prova social.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Resumo Executivo</div>
+  <div class="exec-box">
+    <p>O SDA 2026 faturou <strong style="color:var(--accent-green)">R$ 378.496</strong> com 253 vendas e 342 ingressos. ROAS geral de <strong>2.08x</strong> sobre R$ 182K investidos em Meta Ads.</p><br>
+    <p><strong style="color:var(--comercial)">Comercial (64%)</strong> é o motor principal, mas alimentado por leads do tráfego pago. O fluxo dominante: <strong>Meta Ads → Lead → WhatsApp → Venda</strong>. Das 138 vendas comerciais, 45+ vieram de leads gerados por anúncios.</p><br>
+    <p><strong style="color:var(--organico)">Orgânico (21%)</strong> contribui R$ 80.804, sendo Instagram e WhatsApp os canais principais.</p><br>
+    <p><strong style="color:var(--trafego)">Tráfego Pago direto (14%)</strong> gerou R$ 53.929 em vendas CPC. Melhores públicos: LALCompradores (CPA R$185), Env014D (CPA R$131).</p><br>
+    <p><strong>Ações prioritárias:</strong> (1) Escalar LALCompradores + Env014D, (2) Escalar ICPSniper + VisitouPerfil para leads, (3) Reduzir PixelListaIG090, (4) Corrigir UTMs, (5) Implementar atribuição first-touch.</p>
+  </div>
+</div>
+
+<div class="footer">Relatório gerado em 02/Mar/2026 · Samuel MKT · Dados: Meta Ads API + Planilha Eduzz (274 registros)</div>
+</div>
+</body>
+</html>
